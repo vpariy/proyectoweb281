@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->unsignedBigInteger('ci')->unique()->nullable();
             $table->date('fecha_nac');
+            $table->string('genero', 20)->nullable();
 
             $table->timestamps();
 

@@ -12,5 +12,7 @@ Route::view('dashboard', 'dashboard')->middleware('auth');
 
 
 Route::post('login', [\App\Http\Controllers\LoginController::class, 'login']);
+Route::post('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->middleware('auth')->name('logout');
+
 
 

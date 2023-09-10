@@ -21,7 +21,7 @@ class UsuarioFactory extends Factory
             'ap_paterno' => fake()->lastName(),
             'ap_materno' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => '123456',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'ci' => fake()->unique()->numberBetween(0, 99999),
             'fecha_nac' => fake()->date(),
             

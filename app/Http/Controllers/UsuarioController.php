@@ -23,15 +23,23 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return(view('usuario.crear'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {   //dd($request);
+        $usuario = new Usuario();
+        $usuario->ap_paterno = $request->ap_paterno;
+        $usuario->ap_materno = $request->ap_materno;
+        $usuario->nombres = $request->nombres;
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+
+        $usuario->save();
+        return redirect(route('usuarios'));
     }
 
     /**
@@ -45,17 +53,24 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
+    public function edit(Usuario $usuario)
+    {   //dd($usuario);
+        return view('usuario.editar', ['usuario' => $usuario]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request, Usuario $usuario)
+    {   
+        $usuario->ap_paterno = $request->ap_paterno;
+        $usuario->ap_materno = $request->ap_materno;
+        $usuario->nombres = $request->nombres;
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+
+        $usuario->save();
+        return redirect(route('usuarios'));
     }
 
     /**

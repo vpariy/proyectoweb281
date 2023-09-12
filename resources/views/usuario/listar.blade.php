@@ -11,6 +11,10 @@
 </head>
 <body>
     <h1 class="text-center p-3">Listar Usuarios</h1>
+
+    <a href="/usuario-crear" class="btn btn-success">Crear usuario</a>
+    
+
     <table class="table">
         <thead class="table-info">
           <tr>
@@ -33,7 +37,12 @@
             <td>{{ $usuario->fecha_nac }}</td>
             <td>{{ $usuario->email }}</td>
             <td>
-                <a href="" class="btn btn-warning">Editar</a>
+                <form action=" {{ route('usuario-editar', $usuario) }} " method="POST">
+                    @csrf
+                    @method('POST')
+
+                    <input type="submit" value="Editar" class="btn btn-warning">   
+                </form>
                 
                 <form action=" {{ route('usuario-borrar', $usuario) }} " method="POST">
                     @csrf

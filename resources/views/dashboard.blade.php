@@ -7,6 +7,8 @@
 </head>
 <body>
     @include('partial.nav')
+    <br>
+    <a href="/usuarios" class="btn btn-success">Listar ususarios</a>
 
     <h1>DASHBOARD</h1>
 </body>

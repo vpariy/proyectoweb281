@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    @include('partial.nav')
     <h1 class="text-center p-3">Listar Usuarios</h1>
 
     <a href="/usuario-crear" class="btn btn-success">Crear usuario</a>

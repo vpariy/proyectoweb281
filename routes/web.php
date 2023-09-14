@@ -25,3 +25,4 @@ Route::post('usuario-crear-post', [\App\Http\Controllers\UsuarioController::clas
 Route::post('usuario-editar/{usuario}', [\App\Http\Controllers\UsuarioController::class, 'edit'])->middleware('auth')->name('usuario-editar');
 Route::put('usuario-actualizar/{usuario}', [\App\Http\Controllers\UsuarioController::class, 'update'])->middleware('auth')->name('usuario-actualizar');
 
+//Route::resource('usuario', \App\Http\Controllers\UsuarioController::class)->middleware('auth');

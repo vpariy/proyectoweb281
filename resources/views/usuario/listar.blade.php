@@ -13,7 +13,7 @@
     @include('partial.nav')
     <h1 class="text-center p-3">Listar Usuarios</h1>
 
-    <a href="/usuario-crear" class="btn btn-success">Crear usuario</a>
+    <a href="{{ route('usuario.create') }}" class="btn btn-success">Crear usuario</a>
     
 
     <table class="table">
@@ -38,14 +38,14 @@
             <td>{{ $usuario->fecha_nac }}</td>
             <td>{{ $usuario->email }}</td>
             <td>
-                <form action=" {{ route('usuario-editar', $usuario) }} " method="POST">
+                <form action=" {{ route('usuario.edit', $usuario) }} " method="POST">
                     @csrf
-                    @method('POST')
+                    @method('GET')
 
                     <input type="submit" value="Editar" class="btn btn-warning">   
                 </form>
                 
-                <form action=" {{ route('usuario-borrar', $usuario) }} " method="POST">
+                <form action=" {{ route('usuario.destroy', $usuario) }} " method="POST">
                     @csrf
                     @method('DELETE')
 

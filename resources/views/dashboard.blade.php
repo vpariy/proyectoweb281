@@ -7,8 +7,9 @@
 </head>
 <body>
     @include('partial.nav')
+    <pre>{{ Auth::user() }}</pre>
     <br>
-    <a href="/usuarios" class="btn btn-success">Listar ususarios</a>
+    <a href="{{ route('usuario.index') }}" class="btn btn-success">Listar ususarios</a>
 
     <h1>DASHBOARD</h1>
 </body>

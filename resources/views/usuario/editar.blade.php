@@ -11,12 +11,12 @@
     @include('partial.nav')
 
     <h1>login</h1>
-    <pre>{{ Auth::user() }}</pre>
+    
 
     <h1 class="text-center p-3">Editar usuario</h1>
 
     <div class="container-fuild row justify-content-center">
-        <form action="{{ route('usuario-actualizar', $usuario) }}" method="POST" class="col-4">
+        <form action="{{ route('usuario.update', $usuario) }}" method="POST" class="col-4">
         @csrf
         @method('PUT')
             <div class="mb-3">

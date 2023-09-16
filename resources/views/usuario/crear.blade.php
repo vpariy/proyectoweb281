@@ -11,12 +11,12 @@
     @include('partial.nav')
 
     <h1>login</h1>
-    <pre>{{ Auth::user() }}</pre>
+    
 
     <h1 class="text-center p-3">Crear usuario</h1>
 
     <div class="container-fuild row justify-content-center">
-        <form action="{{ route('usuario-crear-post') }}" method="POST" class="col-4">
+        <form action="{{ route('usuario.store') }}" method="POST" class="col-4">
         @csrf
         @method('POST')
             <div class="mb-3">

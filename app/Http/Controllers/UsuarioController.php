@@ -38,6 +38,8 @@ class UsuarioController extends Controller
         $usuario->email = $request->email;
         $usuario->password = $request->password;
         $usuario->fecha_nac = $request->fecha_nac;
+        $usuario->ci = $request->ci;
+        $usuario->genero = $request->genero;
 
         $usuario->save();
         return redirect(route('usuario.index'));
@@ -70,7 +72,9 @@ class UsuarioController extends Controller
         $usuario->email = $request->email;
         $usuario->password = $request->password;
         $usuario->fecha_nac = $request->fecha_nac;
-
+        $usuario->ci = $request->ci;
+        $usuario->genero = $request->genero;
+        
         $usuario->save();
         return redirect(route('usuario.index'));
     }

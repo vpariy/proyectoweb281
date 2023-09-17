@@ -31,7 +31,7 @@
         <tbody>
           @foreach($usuarios as $usuario)  
           <tr>
-            <th scope="row">{{ $usuario->id }}</th>
+            <th scope="row">{{ $usuario->id_usuario }}</th>
             <td>{{ $usuario->ap_paterno }}</td>
             <td>{{ $usuario->ap_materno }}</td>
             <td>{{ $usuario->nombres }}</td>

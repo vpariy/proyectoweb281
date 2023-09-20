@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -31,12 +32,14 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {   //dd($request);
+
+        
         $usuario = new Usuario();
         $usuario->ap_paterno = $request->ap_paterno;
         $usuario->ap_materno = $request->ap_materno;
         $usuario->nombres = $request->nombres;
         $usuario->email = $request->email;
-        $usuario->password = $request->password;
+        $usuario->password = Hash::make($request->password);
         $usuario->fecha_nac = $request->fecha_nac;
         $usuario->ci = $request->ci;
         $usuario->genero = $request->genero;

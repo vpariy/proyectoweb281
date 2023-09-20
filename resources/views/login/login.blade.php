@@ -32,8 +32,12 @@
            
             
           </form>
-    
     </div>
+    <br>
+    <div class="container-fuild row justify-content-center">
+      <a href="{{ route('registre') }}" class="btn btn-success col-2 ">Registro</a>
+    </div>
+    
 
 </body>
 </html>

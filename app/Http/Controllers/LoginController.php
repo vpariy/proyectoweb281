@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     // este cambio lo hice
+
+    //aun mas cambios
     public function ingreso() {
         
         return view('login.ingreso');

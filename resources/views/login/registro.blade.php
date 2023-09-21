@@ -16,7 +16,7 @@
     <h1 class="text-center p-3">Crear usuario</h1>
 
     <div class="container-fuild row justify-content-center">
-        <form action="{{ route('registre.store') }}" method="POST" class="col-4">
+        <form action="{{ route('login.registrar') }}" method="POST" class="col-4">
             @method('POST')
             @csrf
             @include('usuario.datos')

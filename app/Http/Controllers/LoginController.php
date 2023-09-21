@@ -10,8 +10,15 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function login(Request $request) {
 
+    public function ingreso() {
+        
+        return view('login.ingreso');
+
+    }
+
+    public function valida(Request $request) {
+        
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
@@ -19,9 +26,10 @@ class LoginController extends Controller
             return redirect('dashboard');
         }
 
-        return redirect('login');
+        return redirect('login/ingreso');
 
     }
+
 
     public function logout(Request $request) {
 
@@ -32,11 +40,11 @@ class LoginController extends Controller
         return redirect('/');
     }
     
-    public function create(Usuario $usuario){
-        return view('login.registre', ['usuario' => $usuario]);
+    public function registro(Usuario $usuario){
+        return view('login.registro', ['usuario' => $usuario]);
     }
 
-    public function store(Request $request) {
+    public function registrar(Request $request) {
         $usuario = new Usuario();
         $usuario->ap_paterno = $request->ap_paterno;
         $usuario->ap_materno = $request->ap_materno;

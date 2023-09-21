@@ -16,7 +16,7 @@
     <h1 class="text-center p-3">Iniciar Sesion</h1>
 
     <div class="container-fuild row justify-content-center">
-        <form method="POST" class="col-3">
+        <form action="{{ route('login.valida') }}" method="POST" class="col-3">
             @csrf
             <div class="mb-3">
               <label for="email" class="form-label">Correo electronico</label>
@@ -35,7 +35,7 @@
     </div>
     <br>
     <div class="container-fuild row justify-content-center">
-      <a href="{{ route('registre') }}" class="btn btn-success col-2 ">Registro</a>
+      <a href="{{ route('login.registro') }}" class="btn btn-success col-2 ">Registro</a>
     </div>
     
 

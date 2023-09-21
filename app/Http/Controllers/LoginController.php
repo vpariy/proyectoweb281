@@ -12,6 +12,7 @@ class LoginController extends Controller
 {
     // este cambio lo hice
     //otro cambio
+    //cambio 2s
     public function ingreso() {
         
         return view('login.ingreso');

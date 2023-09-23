@@ -13,8 +13,11 @@ class UsuarioController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $usuarios = Usuario::All();
+    {   
+        //$usuarios = Usuario::all();
+        
+        $usuarios = Usuario::orderByDesc('updated_at')->get();
+        //dd($usuarios);
 
         return view('usuario.listar', ['usuarios' => $usuarios]);
     }

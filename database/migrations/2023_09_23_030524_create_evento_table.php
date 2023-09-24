@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('evento', function (Blueprint $table) {
             $table->id('id_evento');
             $table->unsignedBigInteger('id_usuario');
-            $table->string('nombre', 50)->nullable();
+            $table->string('nombre', 100)->nullable();
             $table->string('tipo', 50)->nullable();
             $table->string('descripcion', 100)->nullable();
             $table->date('f_creacion')->nullable();

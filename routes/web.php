@@ -22,7 +22,8 @@ Route::post('login/registrar', [\App\Http\Controllers\LoginController::class, 'r
 Route::resource('usuario', \App\Http\Controllers\UsuarioController::class)->middleware('auth');
 
 Route::get('evento/listar', [\App\Http\Controllers\EventoController::class, 'listar'])->middleware('auth')->name('evento.listar');
-
+Route::get('evento/crear', [\App\Http\Controllers\EventoController::class, 'crear'])->middleware('auth')->name('evento.crear');
+Route::post('evento/registra', [\App\Http\Controllers\EventoController::class, 'registra'])->middleware('auth')->name('evento.registra');
 
 
 

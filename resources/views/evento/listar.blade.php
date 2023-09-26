@@ -27,7 +27,7 @@
             <div class="p-3 ">
                 <h1>EVENTOS</h1>
 
-                <<a href="" class="btn btn-success m-2">Crear evento</a>
+                <<a href="{{ route('evento.crear') }}" class="btn btn-success m-2">Crear evento</a>
 
 
                 @foreach($eventos as $evento)

@@ -43,3 +43,7 @@ Route::post('usuario-crear-post', [\App\Http\Controllers\UsuarioController::clas
 Route::post('usuario-editar/{usuario}', [\App\Http\Controllers\UsuarioController::class, 'edit'])->middleware('auth')->name('usuario-editar');
 Route::put('usuario-actualizar/{usuario}', [\App\Http\Controllers\UsuarioController::class, 'update'])->middleware('auth')->name('usuario-actualizar');
  */
+
+
+ //rutas centros ayuda
+Route::resource('centro_ayuda',\App\Http\Controllers\CentroAyudaController::class)->middleware('auth');

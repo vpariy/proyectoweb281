@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    //cambio 2s
+
     public function ingreso() {
         
         return view('login.ingreso');

@@ -18,12 +18,12 @@ class EventoFactory extends Factory
      */
     public function definition(): array
     {   
-        $tipo = ['presencial', 'virtual', 'ambos'];
+        $tipo = ['presencial', 'virtual', 'presencial/virtual'];
 
         return [
             'nombre'        => fake()->sentence(4),
             'tipo'          => fake()->randomElement($tipo),
-            'descripcion'   => fake()->text('50'),
+            'descripcion'   => fake()->text('200'),
             'f_creacion'    => fake()->date(),
             'f_evento'      => fake()->date(),
             'direccion'     => fake()->address('50'),

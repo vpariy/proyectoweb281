@@ -14,11 +14,9 @@
 </head>
 <body>
     @include('partial.nav')
-    <pre>{{ Auth::user() }}</pre>
-    <br>
-    <a href="{{ route('usuario.index') }}" class="btn btn-success">Listar ususarios</a>
+    
 
-    <h1>DASHBOARD</h1>
+    
 
 
     <div class="container-fluid ">
@@ -27,6 +25,7 @@
             
             <!-- Contenido -->
             <div class="p-3">
+                <h1>DASHBOARD</h1>
                 <h2>Conted Area</h2>
             </div>
             <!-- Fin Contenido -->

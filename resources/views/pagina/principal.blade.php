@@ -13,11 +13,7 @@
 </head>
 <body>
     
-    @include('partial.nav')
-
-    <pre>{{ Auth::user() }}</pre>
-    <br>
-    <a href="{{ route('usuario.index') }}" class="btn btn-success">Listar ususarios</a>
+    
 
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -31,13 +27,13 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Panel de articulos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Panel de eventos</a>
+                            <a class="nav-link" href="{{ route('pagina.principal') }}">Panel de eventos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">¿Denuncia?</a>
@@ -61,25 +57,11 @@
                 </div>
             </div>
             
-            <div class="col-1">
-                    <div class="row">
-                        <div class="col-5">
-                            <a class="navbar-brand align-items-center" href="#"><img src="img/photo_user.png" alt="Logo" style="width: 50px; height: 50px; border-radius: 50%"></a>
-                        </div>
-                        
-                        <div class="col-2 collapse navbar-collapse" >
-                            <tr>
-                                <td>Nombre </td>
-                                <td>Apellido </td>
-                                <br>
-                                <td>user@correo.com</td>
-                            </tr>
-                        </div>
-                    </div>
+            <div class="col ">
+                <a href="login/ingreso" class="btn btn-success m-0">Ingreso</a>
+                
             </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
         </div>  
     </div>
     </nav>
@@ -87,22 +69,19 @@
     <!-- Contenido de la página -->
     <div class="container mt-5 mb-5">
     <div class="card-header text-center mb-3"><h1>Eventos proximos</h1></div>
-    
+
+        @foreach($eventos as $evento)
         <div class="card text-center mb-2">
         <div class="card-body">
-            <h5 class="card-title">Evento Online</h5>
-            <p class="card-text">Evento sobre charla de seguridad en las escuelas y universidades.</p>
-            <a href="#" class="btn btn-primary">Link del la runion o ubicación</a>
+            <h5 class="card-title">{{ $evento->nombre }}</h5>
+            <p class="card-text">{{ $evento->descripcion }}</p>
+            <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
+            <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
+            <a href="{{ $evento->link }}" class="btn btn-primary">Link del la runion o ubicación</a>
         </div>
         </div>
-        
-        <div class="card text-center mb-2">
-        <div class="card-body">
-            <h5 class="card-title">Evento Online</h5>
-            <p class="card-text">Evento sobre charla de seguridad en las escuelas y universidades.</p>
-            <a href="#" class="btn btn-primary">Link del la runion o ubicación</a>
-        </div>
-        </div>
+        @endforeach
+
     </div>
 
     <!-- FOOTER -->

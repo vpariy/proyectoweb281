@@ -6,9 +6,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
-Route::view('/', 'welcome');
+//Route::view('/', 'welcome');
 
 Route::view('dashboard', 'dashboard')->middleware('auth');
+
+Route::get('/', [\App\Http\Controllers\PaginaController::class, 'principal'])->name('pagina.principal');
+
 
 Route::get('login/ingreso', [\App\Http\Controllers\LoginController::class, 'ingreso'])->name('login.ingreso');
 Route::post('login/valida', [\App\Http\Controllers\LoginController::class, 'valida'])->name('login.valida');
@@ -16,9 +19,10 @@ Route::post('login/logout', [\App\Http\Controllers\LoginController::class, 'logo
 Route::get('login/registro', [\App\Http\Controllers\LoginController::class, 'registro'])->name('login.registro');
 Route::post('login/registrar', [\App\Http\Controllers\LoginController::class, 'registrar'])->name('login.registrar');
 
-
-
 Route::resource('usuario', \App\Http\Controllers\UsuarioController::class)->middleware('auth');
+
+Route::get('evento/listar', [\App\Http\Controllers\EventoController::class, 'listar'])->middleware('auth')->name('evento.listar');
+
 
 
 

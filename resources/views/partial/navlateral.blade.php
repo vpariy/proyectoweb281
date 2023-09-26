@@ -5,16 +5,29 @@
         </a>
         <ul class="nav nav-pills flex-column mt-4 ">
             <li class="nav-item py-2 py-sm-0">
+                <a href="/dashboard" class="nav-link text-white ">
+                    <i class="fs-6 fa fa-gauge"></i><span class="fs-5 ms-3 d-none d-sm-inline ">DashBoard</span>
+                </a>     
+            </li>
+
+            <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('usuario.index') }}" class="nav-link text-white ">
                     <i class="fs-6 fa fa-users"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Usuarios</span>
+                </a>     
+            </li>
+            
+            <li class="nav-item py-2 py-sm-0">
+                <a href="{{ route('evento.listar') }}" class="nav-link text-white ">
+                    <i class="fs-6 fa-solid fa-calendar-day"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Eventos</span>
                 </a>     
             </li>
 
             <li class="nav-item py-2 py-sm-0">
                 <a href="" class="nav-link text-white ">
-                    <i class="fs-6 fa fa-gauge"></i><span class="fs-5 ms-3 d-none d-sm-inline ">DashBoard</span>
+                    <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Normativa</span>
                 </a>     
             </li>
+            
             <li class="nav-item py-2 py-sm-0">
                 <a href="" class="nav-link text-white ">
                     <i class="fs-6 fa fa-house"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Home</span>
@@ -25,11 +38,7 @@
                     <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Articles</span>
                 </a>     
             </li>
-            <li class="nav-item py-2 py-sm-0">
-                <a href="" class="nav-link text-white ">
-                    <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Products</span>
-                </a>     
-            </li>
+            
             <li class="nav-item py-2 py-sm-0">
                 <a href="" class="nav-link text-white ">
                     <i class="fs-6 fa fa-clipboard"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Orders</span>

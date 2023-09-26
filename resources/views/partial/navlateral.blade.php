@@ -27,7 +27,11 @@
                     <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Normativa</span>
                 </a>     
             </li>
-            
+            <li class="nav-item py-2 py-sm-0">
+                <a href="{{ route('centro_ayuda.index') }}" class="nav-link text-white ">
+                    <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Centros de ayuda</span>
+                </a>     
+            </li>
             <li class="nav-item py-2 py-sm-0">
                 <a href="" class="nav-link text-white ">
                     <i class="fs-6 fa fa-house"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Home</span>

@@ -10,21 +10,24 @@ use Illuminate\Support\Facades\Auth;
 
 Route::view('dashboard', 'dashboard')->middleware('auth');
 
+//Rutas pagina principal o de invitados
 Route::get('/', [\App\Http\Controllers\PaginaController::class, 'principal'])->name('pagina.principal');
 
-
+//Rutas login inicio sesion
 Route::get('login/ingreso', [\App\Http\Controllers\LoginController::class, 'ingreso'])->name('login.ingreso');
 Route::post('login/valida', [\App\Http\Controllers\LoginController::class, 'valida'])->name('login.valida');
 Route::post('login/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('login.logout');
 Route::get('login/registro', [\App\Http\Controllers\LoginController::class, 'registro'])->name('login.registro');
 Route::post('login/registrar', [\App\Http\Controllers\LoginController::class, 'registrar'])->name('login.registrar');
 
+//Rutas Usuario
 Route::resource('usuario', \App\Http\Controllers\UsuarioController::class)->middleware('auth');
 
+//Rutas eventos
 Route::get('evento/listar', [\App\Http\Controllers\EventoController::class, 'listar'])->middleware('auth')->name('evento.listar');
 Route::get('evento/crear', [\App\Http\Controllers\EventoController::class, 'crear'])->middleware('auth')->name('evento.crear');
 Route::post('evento/registra', [\App\Http\Controllers\EventoController::class, 'registra'])->middleware('auth')->name('evento.registra');
-
+Route::delete('evento/elimina/{evento}', [\App\Http\Controllers\EventoController::class, 'elimina'])->middleware('auth')->name('evento.elimina');
 
 
 

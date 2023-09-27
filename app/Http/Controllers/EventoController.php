@@ -53,5 +53,10 @@ class EventoController extends Controller
         return redirect(route('evento.listar'));
     }
 
+    public function elimina(Evento $evento) {
+        //dd($evento);
+        $evento->delete();
 
+        return back();
+    }
 }

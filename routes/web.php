@@ -28,6 +28,8 @@ Route::get('evento/listar', [\App\Http\Controllers\EventoController::class, 'lis
 Route::get('evento/crear', [\App\Http\Controllers\EventoController::class, 'crear'])->middleware('auth')->name('evento.crear');
 Route::post('evento/registra', [\App\Http\Controllers\EventoController::class, 'registra'])->middleware('auth')->name('evento.registra');
 Route::delete('evento/elimina/{evento}', [\App\Http\Controllers\EventoController::class, 'elimina'])->middleware('auth')->name('evento.elimina');
+Route::get('evento/edita/{evento}', [\App\Http\Controllers\EventoController::class, 'edita'])->middleware('auth')->name('evento.edita');
+Route::put('evento/actualiza/{evento}', [\App\Http\Controllers\EventoController::class, 'actualiza'])->middleware('auth')->name('evento.actualiza');
 
 
 

@@ -46,12 +46,17 @@
                         <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
                         <div class="d-flex  justify-content-end   ">
                             <a href="" class="btn btn-primary m-2">Ver</a>
-                            <a href="" class="btn btn-warning m-2 ">Editar</a>
+                            <form action=" {{ route('evento.edita', $evento) }} " method="POST">
+                                @csrf
+                                @method('GET')
+
+                                <input type="submit" value="Editar" class="btn btn-warning m-2">   
+                            </form>
                             <form action=" {{ route('evento.elimina', $evento) }} " method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <input type="submit" value="Eliminar" class="btn btn-danger">   
+                                <input type="submit" value="Eliminar" class="btn btn-danger m-2">   
                             </form>
                         </div>
                         

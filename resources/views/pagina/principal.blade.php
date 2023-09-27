@@ -72,7 +72,10 @@
 
         @foreach($eventos as $evento)
         <div class="card text-center mb-2">
-        <div class="card-body">
+        <div class="card-body" >
+            <div class="  align-items-center justify-content-center " >
+                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="">
+            </div>
             <h5 class="card-title">{{ $evento->nombre }}</h5>
             <p class="card-text">{{ $evento->descripcion }}</p>
             <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>

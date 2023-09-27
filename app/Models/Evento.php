@@ -12,5 +12,11 @@ class Evento extends Model
     protected $table = 'evento';
     protected $primaryKey = 'id_evento';
 
+   
+
     public $timestamps = false;
+
+    public function archivo() {
+        return $this->belongsTo(Archivo::class, 'id_archivo', 'id_archivo');
+    }
 }

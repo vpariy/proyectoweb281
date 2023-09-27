@@ -22,7 +22,7 @@
     
 
                 <div class="container-fuild row justify-content-center">
-                    <form action="{{ route('evento.registra') }}" method="POST" class="col-4">
+                    <form action="{{ route('evento.registra') }}" method="POST" class="col-4" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
                         
@@ -64,6 +64,10 @@
                             <input type="text" class="form-control" id="link" name="link" value="{{ $evento->link }}">
                         </div>
                         
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label">Imagen</label>
+                            <input type="file" class="form-control" id="imagen" name="imagen">
+                        </div>
 
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>

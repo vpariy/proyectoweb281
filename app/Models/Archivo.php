@@ -12,5 +12,11 @@ class Archivo extends Model
     protected $table = 'archivo';
     protected $primaryKey = 'id_archivo';
 
-    
+    protected $attributes = [
+        'nombre' => ''
+    ];
+
+    public function evento() {
+        return $this->hasMany(Evento::class);
+    }
 }

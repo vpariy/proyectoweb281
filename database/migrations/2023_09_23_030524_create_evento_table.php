@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('evento', function (Blueprint $table) {
             $table->id('id_evento');
             $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_archivo')->nullable();
             $table->string('nombre', 100)->nullable();
             $table->string('tipo', 50)->nullable();
             $table->string('descripcion', 200)->nullable();
@@ -25,6 +26,7 @@ return new class extends Migration
 
             
             $table->foreign('id_usuario')->references('id_usuario')->on('usuario');
+            $table->foreign('id_archivo')->references('id_archivo')->on('archivo');
 
 
             

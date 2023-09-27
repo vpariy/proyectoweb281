@@ -27,15 +27,17 @@
             <div class="p-3 ">
                 <h1>EVENTOS</h1>
 
-                <<a href="" class="btn btn-success m-2">Crear evento</a>
+                <<a href="{{ route('evento.crear') }}" class="btn btn-success m-2">Crear evento</a>
 
 
                 @foreach($eventos as $evento)
+                
                 <div class="card mb-3 " style="max-width: 840px;">
                     <div class="row g-0">
                     <div class="col-md-4  d-flex justify-content-center ">
-                        <img src="../imagen/descarga.png" class="img-fluid rounded-start" alt="...">
+                        <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="...">
                     </div>
+                    
                     <div class="col-md-8">
                         <div class="card-body">
                         <h5 class="card-title">{{ $evento->nombre }}</h5>

@@ -27,6 +27,14 @@ Route::post('evento/registra', [\App\Http\Controllers\EventoController::class, '
 
 Route::get('normativa/listar', [\App\Http\Controllers\NormativaController::class, 'listar'])->middleware('auth')->name('normativa.listar');
 
+Route::get('articulo/listar', [\App\Http\Controllers\ArticuloController::class, 'listar'])->middleware('auth')->name('articulo.listar');
+Route::get('articulo/crear', [\App\Http\Controllers\ArticuloController::class, 'crear'])->middleware('auth')->name('articulo.crear');
+Route::post('articulo/registra', [\App\Http\Controllers\ArticuloController::class, 'registra'])->middleware('auth')->name('articulo.registra');
+Route::delete('articulo/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('articulo.destroy');
+
+
 
 
 

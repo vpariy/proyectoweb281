@@ -42,6 +42,10 @@ Route::delete('articulo/{articulo}', [\App\Http\Controllers\ArticuloController::
     ->name('articulo.destroy');
 
 
+
+
+
+    
 /* Route::view('login', 'login.login')->name('login')->middleware('guest');
 Route::post('login', [\App\Http\Controllers\LoginController::class, 'login']);
 Route::post('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->middleware('auth')->name('logout');

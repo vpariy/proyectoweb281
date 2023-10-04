@@ -39,7 +39,7 @@
                             <a class="nav-link" href="#">¿Denuncia?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
+                            <a class="nav-link" href="#">Centros de Ayuda</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Questionario</a>
@@ -67,25 +67,49 @@
     </nav>
 
     <!-- Contenido de la página -->
-    <div class="container mt-5 mb-5">
-    <div class="card-header text-center mb-3"><h1>Eventos proximos</h1></div>
+    <div class="p-1 col" >
+      
+        <h1 class="text-center p-3">Listar Centros de Ayuda</h1>
+    <table class="table" >
+    
+        <thead class="table-info">
+        <tr>
+          <th scope="col" >NOMBRES</th>
+          <th scope="col" >DESCRIPCION</th>
+          <th scope="col" >DIRECCIONES</th>
+          <th scope="col" >CONTACTOS</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          @foreach ($centro_ayudas as $centro_ayuda)
+              <tr>
+                  <td> {{$centro_ayuda->nombre_centro}} </td>
+                  <td> {{$centro_ayuda->descripcion}} </td>
+                  <td>
+                    @foreach($centro_ayuda->direcciones as $direccion)
+                    {{$direccion->direccion}}
+                    <br>
+                    @endforeach
+                  </td>
+                  <td>
+                    @foreach($centro_ayuda->contactos as $contacto)
+                    {{$contacto->contacto}}
+                    <br>
+                    @endforeach
+                  </td>
+                
+              </tr>
+          
+          @endforeach
+          
+      </tbody>
+    </table>
+    
 
-        @foreach($eventos as $evento)
-        <div class="card text-center mb-2">
-        <div class="card-body" >
-            <div class="  align-items-center justify-content-center " >
-                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="">
-            </div>
-            <h5 class="card-title">{{ $evento->nombre }}</h5>
-            <p class="card-text">{{ $evento->descripcion }}</p>
-            <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
-            <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
-            <a href="{{ $evento->link }}" class="btn btn-primary">Link del la runion o ubicación</a>
-        </div>
-        </div>
-        @endforeach
 
-    </div>
+  </div>
 
     <!-- FOOTER -->
     <footer>

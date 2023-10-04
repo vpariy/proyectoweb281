@@ -57,4 +57,44 @@ class ArticuloController extends Controller
 
         return redirect()->route('articulo.listar')->with('success', 'Artículo eliminado exitosamente');
     }
+
+    public function editar(Articulo $articulo)
+{
+    return view('articulo.editar', compact('articulo'));
+}
+
+
+public function actualizar(Request $request, Articulo $articulo)
+{
+    // Validación de datos, ajusta las reglas según tus necesidades
+    $request->validate([
+        'nombre_art' => 'required|string|max:255',
+        'desc_art' => 'required|string',
+        'img_art' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Puedes ajustar las reglas para las imágenes
+    ]);
+
+    // Actualiza los campos del artículo
+    $articulo->nombre_art = $request->get('nombre_art');
+    $articulo->desc_art = $request->get('desc_art');
+
+    // Si se proporciona una nueva imagen, la actualiza
+    if ($request->hasFile('img_art')) {
+        // Elimina la imagen anterior si existe
+        if ($articulo->img_art) {
+            $rutaImagen = 'public/' . $articulo->img_art;
+            Storage::delete($rutaImagen);
+        }
+
+        // Guarda la nueva imagen
+        $imagenNombre = $request->file('img_art')->store('imagenes/articulos', 'public');
+        $articulo->img_art = $imagenNombre;
+    }
+
+    // Guarda los cambios en la base de datos
+    $articulo->save();
+
+    // Redirecciona a la vista de lista de artículos o a donde desees
+    return redirect()->route('articulo.listar')->with('success', 'Artículo actualizado exitosamente');
+}
+
 }

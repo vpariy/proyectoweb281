@@ -40,7 +40,7 @@
                                     <p class="card-text">{{ $articulo->desc_art }}</p>
                                     <div class="text-end">
                                         <a href="#" class="btn btn-primary">Ver</a>
-                                        <a href="#" class="btn btn-warning">Editar</a>
+                                        <a href="{{ route('articulo.editar', $articulo) }}" class="btn btn-warning">Editar</a>
                                         <form action="{{ route('articulo.destroy', $articulo) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('DELETE')

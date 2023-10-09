@@ -34,6 +34,9 @@ Route::put('evento/actualiza/{evento}', [\App\Http\Controllers\EventoController:
 
 
 Route::get('normativa/listar', [\App\Http\Controllers\NormativaController::class, 'listar'])->middleware('auth')->name('normativa.listar');
+Route::get('normativa/crear', [\App\Http\Controllers\NormativaController::class, 'crear'])->middleware('auth')->name('normativa.crear');
+Route::post('normativa/registra', [\App\Http\Controllers\NormativaController::class, 'registra'])->middleware('auth')->name('normativa.registra');
+Route::delete('/normativa/eliminar/{ley}', [\App\Http\Controllers\NormativaController::class, 'eliminar'])->middleware('auth')->name('normativa.eliminar');
 
 Route::get('articulo/listar', [\App\Http\Controllers\ArticuloController::class, 'listar'])->middleware('auth')->name('articulo.listar');
 Route::get('articulo/crear', [\App\Http\Controllers\ArticuloController::class, 'crear'])->middleware('auth')->name('articulo.crear');

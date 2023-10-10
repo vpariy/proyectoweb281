@@ -13,6 +13,7 @@ Route::view('dashboard', 'dashboard')->middleware('auth');
 //Rutas pagina principal o de invitados
 Route::get('/', [\App\Http\Controllers\PaginaController::class, 'principal'])->name('pagina.principal');
 Route::get('centrosayuda', [\App\Http\Controllers\PaginaController::class, 'centrosAyuda'])->name('pagina.centrosayuda');
+Route::get('testviolencia', [\App\Http\Controllers\PaginaController::class, 'testviolencia'])->name('pagina.testviolencia');
 
 //Rutas login inicio sesion
 Route::get('login/ingreso', [\App\Http\Controllers\LoginController::class, 'ingreso'])->name('login.ingreso');

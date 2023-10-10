@@ -52,7 +52,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Control de usuarios</a>
-                        </li>                    
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
+                        </li>                     
                     </ul>
                 </div>
             </div>

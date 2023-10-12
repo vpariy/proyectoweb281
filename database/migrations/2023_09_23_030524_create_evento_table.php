@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('evento', function (Blueprint $table) {
             $table->id('id_evento');
-            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_usuario')->nullable();
             $table->unsignedBigInteger('id_archivo')->nullable();
             $table->string('nombre', 100)->nullable();
             $table->string('tipo', 50)->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('link')->nullable();
 
             
-            $table->foreign('id_usuario')->references('id_usuario')->on('usuario');
+            $table->foreign('id_usuario')->references('id_usuario')->on('usuario')->nullOnDelete();
             $table->foreign('id_archivo')->references('id_archivo')->on('archivo');
 
 

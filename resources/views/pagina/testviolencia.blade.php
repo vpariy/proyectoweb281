@@ -15,75 +15,26 @@
     
 
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid justify-content-center">
-        <div class="row justify-content-center align-items-center ">
-            <div class="col-1">
-                <a class="navbar-brand " href="#"><img src="img/descarga_denuncia.png" alt="Logo" style="width: 150px; height: 50px;"></a>
-            </div>
             
-            <div class="col-10">
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Panel de articulos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.principal') }}">Panel de eventos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">¿Denuncia?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Questionario</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Panel de denuncias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Control de usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
-                        </li>                     
-                    </ul>
-                </div>
-            </div>
+            @include('partial.navlogout')
             
-            <div class="col ">
-                <a href="login/ingreso" class="btn btn-success m-0">Ingreso</a>
-                
-            </div>
-                
-        </div>  
-    </div>
-    </nav>
 
      <!-- Contenido de la página -->
      <h1 class="text-center p-3">TEST DE VIOLENCIA DE GENERO</h1>
-     <div class="container mt-5 d-flex justify-content-start">
+     <div class="container mt-5 d-flex justify-content-center text-center">
         <div id="pregunta-container">
             <p id="pregunta"></p>
-            <div class="form-check form-check-inline d-flex">
-                <div class="form-check">
+            <div class="form-check form-check-inline">
+                <div class="form-check m-3" >
                     <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionSi" value="1">
                     <label class="form-check-label" for="opcionSi">Sí</label>
                 </div>
-                <div class="form-check">
+                <div class="form-check m-3">
                     <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionNo" value="0">
                     <label class="form-check-label" for="opcionNo">No</label>
                 </div>
             </div>
-            <button id="siguiente-btn" class="btn btn-primary mt-3">Siguiente</button>
+            <button id="siguiente-btn" class="btn btn-primary text-center">Siguiente</button>
         </div>
     </div>
     

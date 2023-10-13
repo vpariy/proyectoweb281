@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,32 +12,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/style.css">
 </head>
+
 <body>
-    
-    
+
+
 
     <!-- Barra de navegación -->
-            
-            @include('partial.navlogout')
+    @include('partial.navlogout')
+
+
+
+
 
     <!-- Contenido de la página -->
-    <div class="container mt-5 mb-5">
-    <div class="card-header text-center mb-3"><h1>Eventos proximos</h1></div>
+    <div class="p-1 col">
 
-        @foreach($eventos as $evento)
-        <div class="card text-center mb-2">
-        <div class="card-body" >
-            <div class="  align-items-center justify-content-center " >
-                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="">
+        <h1 class="text-center p-3">Articulos</h1>
+        <table class="table">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    @foreach($articulos as $articulo)
+                    <div class="col-md-6">
+
+                        <div class="card">
+                            <img src="{{ asset($articulo->img_art) }}" class="card-img-top" alt="..." width="300" height="300">
+                            <div class="card-body">
+                                <a href=""><h5 class="card-title">{{ $articulo->nombre_art }}</h5></a>
+                                <p class="card-text">{{ $articulo->desc_art }}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
-            <h5 class="card-title">{{ $evento->nombre }}</h5>
-            <p class="card-text">{{ $evento->descripcion }}</p>
-            <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
-            <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
-            <a href="{{ $evento->link }}" class="btn btn-primary">Link del la runion o ubicación</a>
-        </div>
-        </div>
-        @endforeach
+
+            </tbody>
+        </table>
+
+
 
     </div>
 
@@ -45,10 +59,12 @@
         <p>Todos los derechos reservados © 2023</p>
     </footer>
 
-    
-    
-    </body>
-    </html>
+
 
 </body>
+
+</html>
+
+</body>
+
 </html>

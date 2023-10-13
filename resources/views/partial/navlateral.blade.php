@@ -13,47 +13,47 @@
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('usuario.index') }}" class="nav-link text-white ">
                     <i class="fs-6 fa fa-users"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Usuarios</span>
-                </a>     
+                </a>
             </li>
-            
+
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('evento.listar') }}" class="nav-link text-white ">
                     <i class="fs-6 fa-solid fa-calendar-day"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Eventos</span>
-                </a>     
+                </a>
             </li>
 
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('normativa.listar') }}" class="nav-link text-white ">
                     <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Normativa</span>
-                </a>     
+                </a>
             </li>
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('centro_ayuda.index') }}" class="nav-link text-white ">
                     <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Centros de ayuda</span>
-                </a>     
+                </a>
             </li>
             <li class="nav-item py-2 py-sm-0">
                 <a href="" class="nav-link text-white ">
                     <i class="fs-6 fa fa-house"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Home</span>
-                </a>     
+                </a>
             </li>
             <li class="nav-item py-2 py-sm-0">
-                <a href= "{{ route('articulo.listar') }}" class="nav-link text-white ">
+                <a href="{{ route('articulo.listar') }}" class="nav-link text-white ">
                     <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Articles</span>
-                </a>     
+                </a>
             </li>
-            
+
             <li class="nav-item py-2 py-sm-0">
                 <a href="" class="nav-link text-white ">
                     <i class="fs-6 fa fa-clipboard"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Orders</span>
-                </a>     
+                </a>
             </li>
-            
+
         </ul>
     </div>
     <div class="dropdown open p-3">
         <button class="btn border-none btn-secondary dropdown-toggle text-white" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user"></i><span class="ms-2 d-none d-md-inline">Yousaf</span>
+            <i class="fa fa-user"></i><span class="ms-2 d-none d-md-inline">{{ Auth::user()->email }}</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="triggerId">
             <form action="{{ route('login.logout') }}" method="POST">

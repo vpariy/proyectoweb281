@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Centro_ayuda;
 use App\Models\Testviolencia;
+use App\Models\Articulo;
+use App\Models\Ley;
 
 use App\Models\Evento;
 class PaginaController extends Controller
@@ -27,5 +29,15 @@ class PaginaController extends Controller
     public function testviolencia(){
         $preguntas=Testviolencia::orderBy('id')->get();
         return view('pagina.testviolencia',compact('preguntas'));
+    }
+
+    public function articulo(){
+        $articulos=Articulo::orderBy('id_art')->get();
+        return view('pagina.articulo',['articulos' => $articulos]);
+    }
+
+    public function normativa(){
+        $leyes = Ley::orderByDesc('id')->get();
+        return view('pagina.normativa',compact('leyes'));
     }
 }

@@ -14,6 +14,8 @@ Route::view('dashboard', 'dashboard')->middleware('auth');
 Route::get('/', [\App\Http\Controllers\PaginaController::class, 'principal'])->name('pagina.principal');
 Route::get('centrosayuda', [\App\Http\Controllers\PaginaController::class, 'centrosAyuda'])->name('pagina.centrosayuda');
 Route::get('testviolencia', [\App\Http\Controllers\PaginaController::class, 'testviolencia'])->name('pagina.testviolencia');
+Route::get('articulo', [\App\Http\Controllers\PaginaController::class, 'articulo'])->name('pagina.articulo');
+Route::get('normativa', [\App\Http\Controllers\PaginaController::class, 'normativa'])->name('pagina.normativa');
 
 //Rutas login inicio sesion
 Route::get('login/ingreso', [\App\Http\Controllers\LoginController::class, 'ingreso'])->name('login.ingreso');
@@ -42,12 +44,11 @@ Route::delete('/normativa/eliminar/{ley}', [\App\Http\Controllers\NormativaContr
 Route::get('articulo/listar', [\App\Http\Controllers\ArticuloController::class, 'listar'])->middleware('auth')->name('articulo.listar');
 Route::get('articulo/crear', [\App\Http\Controllers\ArticuloController::class, 'crear'])->middleware('auth')->name('articulo.crear');
 Route::post('articulo/registra', [\App\Http\Controllers\ArticuloController::class, 'registra'])->middleware('auth')->name('articulo.registra');
-Route::delete('articulo/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('articulo.destroy');
-    Route::get('articulo/editar/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'editar'])->middleware('auth')->name('articulo.editar');
+Route::delete('articulo/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'destroy'])->middleware('auth')->name('articulo.destroy');
+Route::get('articulo/editar/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'editar'])->middleware('auth')->name('articulo.editar');
 Route::put('articulo/actualizar/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'actualizar'])->middleware('auth')->name('articulo.actualizar');
 
+Route::resource('centro_ayuda',\App\Http\Controllers\CentroAyudaController::class)->middleware('auth');
 
 
 
@@ -73,4 +74,3 @@ Route::put('usuario-actualizar/{usuario}', [\App\Http\Controllers\UsuarioControl
 
 
  //rutas centros ayuda
-Route::resource('centro_ayuda',\App\Http\Controllers\CentroAyudaController::class)->middleware('auth');

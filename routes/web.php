@@ -36,6 +36,9 @@ Route::get('evento/edita/{evento}', [\App\Http\Controllers\EventoController::cla
 Route::put('evento/actualiza/{evento}', [\App\Http\Controllers\EventoController::class, 'actualiza'])->middleware('auth')->name('evento.actualiza');
 
 
+Route::get('questions/listar/{preguntas}', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');
+Route::get('questions/listar', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');
+
 Route::get('normativa/listar', [\App\Http\Controllers\NormativaController::class, 'listar'])->middleware('auth')->name('normativa.listar');
 Route::get('normativa/crear', [\App\Http\Controllers\NormativaController::class, 'crear'])->middleware('auth')->name('normativa.crear');
 Route::post('normativa/registra', [\App\Http\Controllers\NormativaController::class, 'registra'])->middleware('auth')->name('normativa.registra');

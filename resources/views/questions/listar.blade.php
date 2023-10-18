@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bienvenida</title>
+    <title>Dashboard</title>
 
     <!-- Link de los estilos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/style.css">
+
 </head>
+
 <body>
-    
-    
+    @include('partial.nav')
 
-    <!-- Barra de navegación -->
-            
-            @include('partial.navlogout')
-            
 
-     <!-- Contenido de la página -->
-     <h1 class="text-center p-3">TEST DE VIOLENCIA DE GENERO</h1>
-     <div class="container mt-5 d-flex justify-content-center text-center">
-        <div id="pregunta-container">
-            <p id="pregunta"></p>
-            <div class="form-check form-check-inline">
-                <div class="form-check m-3" >
-                    <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionSi" value="1">
-                    <label class="form-check-label" for="opcionSi">Sí</label>
-                </div>
-                <div class="form-check m-3">
-                    <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionNo" value="0">
-                    <label class="form-check-label" for="opcionNo">No</label>
+
+
+
+    <div class="container-fluid ">
+        <div class="row flex-nowrap ">
+            @include('partial.navlateral')
+            <!-- Contenido de la página -->
+
+            <div class="col mt-4 ">
+                <h1 class="text-center p-3">TEST DE VIOLENCIA DE GENERO</h1>
+                <div class="container mt-5 d-flex justify-content-center text-center">
+                    <div id="pregunta-container">
+                        <p id="pregunta"></p>
+                        <div class="form-check form-check-inline">
+                            <div class="form-check m-3">
+                                <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionSi" value="1">
+                                <label class="form-check-label" for="opcionSi">Sí</label>
+                            </div>
+                            <div class="form-check m-3">
+                                <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionNo" value="0">
+                                <label class="form-check-label" for="opcionNo">No</label>
+                            </div>
+                        </div>
+                        <button id="siguiente-btn" class="btn btn-primary text-center">Siguiente</button>
+                    </div>
                 </div>
             </div>
-            <button id="siguiente-btn" class="btn btn-primary text-center">Siguiente</button>
         </div>
     </div>
-    
-    
+
+
     
 <!-- Modal de Bootstrap -->
 <div class="modal fade modal-warning" id="modalUno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,7 +61,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Existe la posibilidad que la violencia aumente 
+                Existe la posibilidad que la violencia aumente
                 <p id="resultado1"></p>
             </div>
             <div class="modal-footer">
@@ -139,8 +149,8 @@
             if (document.getElementById('opcionSi').checked || document.getElementById('opcionNo').checked) {
                 if (document.getElementById('opcionSi').checked && preguntaIndex<10) {
                 nivel1++;
-                } 
-                 
+                }
+
                 if (document.getElementById('opcionSi').checked && preguntaIndex>=10 && preguntaIndex<20) {
                 nivel2++;
                 }
@@ -181,8 +191,6 @@
         
         }
 
-
-
     // Agregar un event listener al botón "Siguiente"
     document.getElementById('siguiente-btn').addEventListener('click', siguientePregunta);
 
@@ -190,65 +198,81 @@
     mostrarPregunta();
 </script>
 
-
-
-
 <style>
-    .custom-radio {
-    width: 2rem; /* Personaliza el ancho del radio */
-    height: 2rem; /* Personaliza la altura del radio */
+.custom-radio {
+    width: 2rem;
+    /* Personaliza el ancho del radio */
+    height: 2rem;
+    /* Personaliza la altura del radio */
     margin-right: 0.5rem;
 }
+
 .modal-warning .modal-content {
-    background-color: #ecf027; /* Cambia el color de fondo del modal a azul */
-    color: #ffffff; /* Cambia el color del texto dentro del modal a blanco */
+    background-color: #ecf027;
+    /* Cambia el color de fondo del modal a azul */
+    color: #ffffff;
+    /* Cambia el color del texto dentro del modal a blanco */
 }
 
 .modal-warning .modal-header {
-    background-color: #c5c20e; /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
+    background-color: #c5c20e;
+    /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
 }
 
 .modal-warning .modal-footer {
-    background-color: #c5c20e; /* Cambia el color del pie del modal a un tono más oscuro de azul */
+    background-color: #c5c20e;
+    /* Cambia el color del pie del modal a un tono más oscuro de azul */
 }
 
 .modal-orange .modal-content {
-    background-color: #fa9a1c; /* Cambia el color de fondo del modal a azul */
-    color: #ffffff; /* Cambia el color del texto dentro del modal a blanco */
+    background-color: #fa9a1c;
+    /* Cambia el color de fondo del modal a azul */
+    color: #ffffff;
+    /* Cambia el color del texto dentro del modal a blanco */
 }
 
 .modal-orange .modal-header {
-    background-color: #b16f0b; /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
+    background-color: #b16f0b;
+    /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
 }
 
 .modal-orange .modal-footer {
-    background-color: #b16f0b; /* Cambia el color del pie del modal a un tono más oscuro de azul */
+    background-color: #b16f0b;
+    /* Cambia el color del pie del modal a un tono más oscuro de azul */
 }
 
 .modal-red .modal-content {
-    background-color: #f5631f; /* Cambia el color de fondo del modal a azul */
-    color: #ffffff; /* Cambia el color del texto dentro del modal a blanco */
+    background-color: #f5631f;
+    /* Cambia el color de fondo del modal a azul */
+    color: #ffffff;
+    /* Cambia el color del texto dentro del modal a blanco */
 }
 
 .modal-red .modal-header {
-    background-color: #c44f0b; /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
+    background-color: #c44f0b;
+    /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
 }
 
 .modal-red .modal-footer {
-    background-color: #c44f0b; /* Cambia el color del pie del modal a un tono más oscuro de azul */
+    background-color: #c44f0b;
+    /* Cambia el color del pie del modal a un tono más oscuro de azul */
 }
 
 .modal-green .modal-content {
-    background-color: #05df46; /* Cambia el color de fondo del modal a azul */
-    color: #ffffff; /* Cambia el color del texto dentro del modal a blanco */
+    background-color: #05df46;
+    /* Cambia el color de fondo del modal a azul */
+    color: #ffffff;
+    /* Cambia el color del texto dentro del modal a blanco */
 }
 
 .modal-green .modal-header {
-    background-color: #0d802f; /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
+    background-color: #0d802f;
+    /* Cambia el color del encabezado del modal a un tono más oscuro de azul */
 }
 
 .modal-green .modal-footer {
-    background-color: #0d802f; /* Cambia el color del pie del modal a un tono más oscuro de azul */
+    background-color: #0d802f;
+    /* Cambia el color del pie del modal a un tono más oscuro de azul */
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -262,5 +286,5 @@ $('#modalTres').on('hidden.bs.modal', function () {location.reload();});
 $('#modalCuatro').on('hidden.bs.modal', function () {location.reload();});
 </script>
 </body>
-</html>
 
+</html>

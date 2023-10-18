@@ -7,59 +7,10 @@ use Illuminate\Http\Request;
 
 class TestviolenciaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        
+
+    public function listar(){
+        $preguntas=Testviolencia::orderBy('id')->get();
+        return view('questions.listar',compact('preguntas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Testviolencia $testviolencia)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Testviolencia $testviolencia)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Testviolencia $testviolencia)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Testviolencia $testviolencia)
-    {
-        //
-    }
 }

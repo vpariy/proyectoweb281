@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +13,18 @@
     <link rel="stylesheet" href="../style/style.css">
 
 </head>
+
 <body>
     @include('partial.nav')
-    
 
-    
+
+
 
 
     <div class="container-fluid ">
         <div class="row flex-nowrap ">
             @include('partial.navlateral')
-            
+
             <!-- Contenido -->
             <div class="p-3 ">
                 <h1>EVENTOS</h1>
@@ -30,46 +32,47 @@
                 <<a href="{{ route('evento.crear') }}" class="btn btn-success m-2">Crear evento</a>
 
 
-                @foreach($eventos as $evento)
-                
-                <div class="card mb-3 " style="max-width: 840px;">
-                    <div class="row g-0">
-                    <div class="col-md-4  d-flex justify-content-center ">
-                        <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    
-                    <div class="col-md-8">
-                        <div class="card-body">
-                        <h5 class="card-title">{{ $evento->nombre }}</h5>
-                        <p class="card-text">{{ $evento->descripcion }}</p>
-                        <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
-                        <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
-                        <div class="d-flex  justify-content-end   ">
-                            <a href="" class="btn btn-primary m-2">Ver</a>
-                            <form action=" {{ route('evento.edita', $evento) }} " method="POST">
-                                @csrf
-                                @method('GET')
+                    @foreach($eventos as $evento)
 
-                                <input type="submit" value="Editar" class="btn btn-warning m-2">   
-                            </form>
-                            <form action=" {{ route('evento.elimina', $evento) }} " method="POST">
-                                @csrf
-                                @method('DELETE')
+                    <div class="card mb-3 " style="max-width: 840px;">
+                        <div class="row g-0">
+                            <div class="col-md-4  d-flex justify-content-center ">
+                                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="...">
+                            </div>
 
-                                <input type="submit" value="Eliminar" class="btn btn-danger m-2">   
-                            </form>
-                        </div>
-                        
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $evento->nombre }}</h5>
+                                    <p class="card-text">{{ $evento->descripcion }}</p>
+                                    <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
+                                    <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
+                                    <div class="d-flex  justify-content-end   ">
+                                        <a href="" class="btn btn-primary m-2">Ver</a>
+                                        <form action=" {{ route('evento.edita', $evento) }} " method="POST">
+                                            @csrf
+                                            @method('GET')
+
+                                            <input type="submit" value="Editar" class="btn btn-warning m-2">
+                                        </form>
+                                        <form action=" {{ route('evento.elimina', $evento) }} " method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <input type="submit" value="Eliminar" class="btn btn-danger m-2">
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                </div>
-                @endforeach
+                    @endforeach
 
             </div>
             <!-- Fin Contenido -->
         </div>
     </div>
-    
+
 </body>
+
 </html>

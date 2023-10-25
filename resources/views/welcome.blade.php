@@ -24,7 +24,7 @@
     <div class="container-fluid justify-content-center">
         <div class="row justify-content-center align-items-center ">
             <div class="col-1">
-                <a class="navbar-brand " href="#"><img src="img/descarga_denuncia.png" alt="Logo" style="width: 150px; height: 50px;"></a>
+                <a class="navbar-brand " href="#"><img src="https://tse1.mm.bing.net/th?id=OIP.IWCjQ0V8j0jploUPqhX6ZAHaDQ&pid=Api&P=0&w=300&h=300" alt="Logo" style="width: 150px; height: 50px;"></a>
             </div>
             
             <div class="col-10">

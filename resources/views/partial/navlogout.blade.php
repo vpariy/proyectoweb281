@@ -1,44 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid justify-content-center">
-        <div class="row justify-content-center align-items-center ">
-            <div class="col-1">
-                <a class="navbar-brand " href="#"><img src="img/descarga_denuncia.png" alt="Logo" style="width: 150px; height: 50px;"></a>
-            </div>
-            <div class="col-10">
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.articulo') }}">Panel de articulos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.principal') }}">Panel de eventos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">¿Denuncia?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('pagina.normativa') }}">Normativas</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Panel de denuncias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-1">
-                <a href="login/ingreso" class="btn btn-success m-0">Ingreso</a>
+<nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: #fff;">
+    <div class="container justify-content-between d-flex">
 
-            </div>
-
+        <div class="col-2">
+            <a class="navbar-brand " href="{{ route('pagina.principal') }}"><img src="https://tse1.mm.bing.net/th?id=OIP.IWCjQ0V8j0jploUPqhX6ZAHaDQ&pid=Api&P=0&w=300&h=300" alt="Logo" style="width: 250px; height: 85px;"></a>
         </div>
+
+        <div class="col-10">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="login/ingreso" class="btn btn-outline-success">Ingreso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.normativa') }}">Normativas</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-danger" href="#">Panel de denuncias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-info" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 </nav>

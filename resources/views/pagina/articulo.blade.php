@@ -15,14 +15,11 @@
 
 <body>
 
-
-
     <!-- Barra de navegación -->
     @include('partial.navlogout')
-
-
-
-
+    <br>
+    <br>
+    <br>
 
     <!-- Contenido de la página -->
     <div class="p-1 col">
@@ -33,25 +30,20 @@
                 <div class="row justify-content-md-center">
                     @foreach($articulos as $articulo)
                     <div class="col-md-6">
-
                         <div class="card">
                             <img src="{{ asset($articulo->img_art) }}" class="card-img-top" alt="..." width="300" height="300">
                             <div class="card-body">
-                                <a href=""><h5 class="card-title">{{ $articulo->nombre_art }}</h5></a>
+                                <a href="">
+                                    <h5 class="card-title">{{ $articulo->nombre_art }}</h5>
+                                </a>
                                 <p class="card-text">{{ $articulo->desc_art }}</p>
                             </div>
-
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
-
-            </tbody>
         </table>
-
-
-
     </div>
 
     <!-- FOOTER -->

@@ -8,18 +8,18 @@ use App\Models\Centro_ayuda;
 use App\Models\Testviolencia;
 use App\Models\Articulo;
 use App\Models\Ley;
-
 use App\Models\Evento;
+
 class PaginaController extends Controller
 {
     public function principal() {
 
         $eventos = Evento::orderByDesc('f_evento')->get();
-        //dd($eventos);
-
-        return view('pagina.principal', ['eventos' => $eventos]);
-
+        $articulos = Articulo::orderBy('id_art')->get();
+        //dd($articulos);
+        return view('pagina.principal', ['eventos' => $eventos, 'articulos' => $articulos]);
     }
+    
 
     public function centrosAyuda() {
         $centro_ayudas = Centro_ayuda::with('direcciones','contactos')->get();

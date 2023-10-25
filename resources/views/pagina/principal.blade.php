@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,45 +11,112 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+JSMs6ik/1KvoevJtDqV2KceSXC5tmY6Dm2f00drlioml5G5" crossorigin="anonymous"></script>
+    <!-- Agrega la librería de jQuery -->
 </head>
+
 <body>
-    
-    
+
+
 
     <!-- Barra de navegación -->
-            
-            @include('partial.navlogout')
+
+    @include('partial.navlogout')
 
     <!-- Contenido de la página -->
-    <div class="container mt-5 mb-5">
-    <div class="card-header text-center mb-3"><h1>Eventos proximos</h1></div>
-
-        @foreach($eventos as $evento)
-        <div class="card text-center mb-2">
-        <div class="card-body" >
-            <div class="  align-items-center justify-content-center " >
-                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Primera diapositiva -->
+            <div class="carousel-item active">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.3mWjR0kIxiVZLsDHxw_aDwHaDs&pid=Api&P=0&w=300&h=300" class="d-block w-100" alt="Imagen 1">
             </div>
-            <h5 class="card-title">{{ $evento->nombre }}</h5>
-            <p class="card-text">{{ $evento->descripcion }}</p>
-            <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
-            <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
-            <a href="{{ $evento->link }}" class="btn btn-primary">Link del la runion o ubicación</a>
+            <!-- Segunda diapositiva -->
+            <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1fofFr6XT7T3DZcvOr04rNuwfONBu5v1qqg&usqp=CAU" class="d-block w-100" alt="Imagen 2">
+            </div>
+            <!-- Tercera diapositiva -->
+            <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqtDa1dsyqkg0XkcQ7Z4O-7LiI50UJXbwW3A&usqp=CAU" class="d-block w-100" alt="Imagen 3">
+            </div>
         </div>
-        </div>
-        @endforeach
-
+        <!-- Controles del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
     </div>
+
+
+
+
+    <div class="container mt-5 mb-5">
+        <div class="card-header text-center mb-3">
+            <h1>Eventos proximos</h1>
+        </div>
+
+        <div class="card-group">
+            @for ($i = 0; $i < count($eventos); $i++) @if ($i % 3==0) </div>
+                <div class="card-group">
+                    @endif
+                    <div class="card border-info mb-3" style="max-width: 34rem;">
+                        <div class="card-header d-flex justify-content-between">
+                            <p class="card-text"><small class="text-muted">Modalidad {{ $eventos[$i]->tipo }}</small></p>
+                            <a href="{{ $eventos[$i]->link }}" class="btn btn-outline-info"><i class="fas fa-info-circle"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $eventos[$i]->nombre }}</h5>
+                            <p class="card-text">{{ $eventos[$i]->descripcion }}</p>
+                            <p class="card-text"><small class="text-muted">Dia del evento: {{ $eventos[$i]->f_evento }}</small></p>
+                        </div>
+                    </div>
+                    @endfor
+                </div>
+        </div>
+
+        <div class="card-header text-center mb-3">
+            <h1 class="text-center p-3">Articulos</h1>
+        </div>
+        
+        <table class="table">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    @foreach($articulos as $articulo)
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="{{ asset($articulo->img_art) }}" class="card-img-top" alt="..." width="300" height="300">
+                            <div class="card-body">
+                                <a href="">
+                                    <h5 class="card-title">{{ $articulo->nombre_art }}</h5>
+                                </a>
+                                <p class="card-text">{{ $articulo->desc_art }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </table>
+    </div>
+
+
 
     <!-- FOOTER -->
     <footer>
         <p>Todos los derechos reservados © 2023</p>
     </footer>
 
-    
-    
-    </body>
-    </html>
+    <script>
+        // Inicializa el carrusel con un intervalo de 2 segundos
+        $('#carouselExample').carousel({
+            interval: 2000
+        });
+    </script>
 
 </body>
+
 </html>

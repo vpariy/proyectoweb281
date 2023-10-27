@@ -53,7 +53,7 @@ Route::put('articulo/actualizar/{articulo}', [\App\Http\Controllers\ArticuloCont
 
 Route::resource('centro_ayuda',\App\Http\Controllers\CentroAyudaController::class)->middleware('auth');
 
-
+Route::resource('alerta',\App\Http\Controllers\AlertaController::class)->middleware('auth');
 
 
 

@@ -20,4 +20,12 @@ class Usuario extends Authenticatable
         'password',
     ];
 
+    public function alertas(){
+        return $this->hasMany(Alerta::class,'id_usuario');
+    }
+    
+    public function ubicaciones(){
+        return $this->belongsToMany(Ubicacion::class,'alertas','id_usuario','id_ubicacion');
+    }
+
 }

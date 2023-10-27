@@ -104,8 +104,6 @@
         </table>
     </div>
 
-   <!-- <button id="obtener-ubicacion">Obtener Ubicación</button>-->
-    <button type="button" class="btn btn-danger" id="obtener-ubicacion">ALERTA</button>
     <!-- FOOTER -->
     <footer>
         <p>Todos los derechos reservados © 2023</p>

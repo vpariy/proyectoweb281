@@ -1,15 +1,7 @@
-<a href="/" class="btn btn-info">Inicio</a>
+<a href="/" class="btn dropdown-item">Inicio</a>
 
 @auth
-<a href="{{ url('dashboard') }}" class="btn btn-info">Dashboard</a>
-
-
-<form style="display: inline" action="{{ route('login.logout') }}" method="POST">
-    @csrf
-    <a href="#" onclick="this.closest('form').submit()" class="btn btn-info">Logout</a>
-</form>
-
-
+<a href="{{ url('dashboard') }}" class="btn dropdown-item">Dashboard</a>
 @else
 
 <a href="login/ingreso">Login</a>

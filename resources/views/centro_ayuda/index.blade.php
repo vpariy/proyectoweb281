@@ -14,7 +14,6 @@
 
 </head>
 <body>
-  @include('partial.nav')
 
   <div class="container-fluid ">
     <div class="row flex-nowrap ">
@@ -22,7 +21,7 @@
       @include('partial.navlateral')
     
       <!-- Contenido -->
-      <div class="p-1 col" >
+      <div class="p-1 col main-content" >
       
         <h1 class="text-center p-3">Listar Centros de Ayuda</h1>
     <table class="table" >

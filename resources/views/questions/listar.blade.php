@@ -15,19 +15,13 @@
 </head>
 
 <body>
-    @include('partial.nav')
-
-
-
-
-
     <div class="container-fluid ">
         <div class="row flex-nowrap ">
             @include('partial.navlateral')
             <!-- Contenido de la página -->
 
             <div class="col mt-4 ">
-                <h1 class="text-center p-3">TEST DE VIOLENCIA DE GENERO</h1>
+                <h1 class="text-center p-3 main-content">TEST DE VIOLENCIA DE GENERO</h1>
                 <div class="container mt-5 d-flex justify-content-center text-center">
                     <div id="pregunta-container">
                         <p id="pregunta"></p>

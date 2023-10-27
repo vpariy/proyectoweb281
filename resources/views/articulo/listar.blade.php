@@ -15,25 +15,19 @@
 </head>
 
 <body>
-    @include('partial.nav')
-
-
-
     <div class="container-fluid">
-        <div class="row flex-nowrap">
+        <div class="row">
+            <!-- Barra lateral -->
             @include('partial.navlateral')
-
-            <div class="col mt-4">
-                <h1 class="text-center mb-4">ARTÍCULOS</h1>
-
+            <!-- Contenido principal -->
+            <div class="col main-content">
+                <h1 class="text-center mt-3">ARTÍCULOS</h1>
                 <a href="{{ route('articulo.crear') }}" class="btn btn-success mb-3 ">Crear artículo</a>
-
                 <div class="container">
                     <div class="row justify-content-md-center">
                         @foreach($articulos as $articulo)
-                        <div class="col-md-6" >
-
-                            <div class="card" >
+                        <div class="col-md-6">
+                            <div class="card">
                                 <img src="{{ asset($articulo->img_art) }}" class="card-img-top" alt="..." width="300" height="300">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $articulo->nombre_art }}</h5>
@@ -48,23 +42,14 @@
                                         </form>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
-                <div class="card-group">
-
-                </div>
             </div>
-
-
-
         </div>
     </div>
-
-
 </body>
 
 </html>

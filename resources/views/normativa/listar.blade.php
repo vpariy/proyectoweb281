@@ -15,18 +15,12 @@
 </head>
 
 <body>
-    @include('partial.nav')
-
-
-
-
-
     <div class="container-fluid ">
         <div class="row flex-nowrap ">
             @include('partial.navlateral')
 
-            <div class="card-body">
-                <h1 class="text-center mb-4">NORMATIVAS</h1>
+            <div class="card-body main-content">
+                <h1 class="text-center mb-4 ">NORMATIVAS</h1>
 
                 <a href="{{ route('normativa.crear') }}" class="btn btn-success mb-3 ">Crear normativa</a>
                 <div class="accordion" id="normativasAccordion">

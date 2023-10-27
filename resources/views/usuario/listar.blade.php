@@ -14,9 +14,7 @@
 
 </head>
 <body>
-  @include('partial.nav')
-
-  <div class="container-fluid ">
+  <div class="container-fluid main-content">
     <div class="row flex-nowrap ">
         
       @include('partial.navlateral')

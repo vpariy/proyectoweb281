@@ -15,64 +15,43 @@
 </head>
 
 <body>
-    @include('partial.nav')
-
-
-
-
-
-    <div class="container-fluid ">
-        <div class="row flex-nowrap ">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barra lateral -->
             @include('partial.navlateral')
-
-            <!-- Contenido -->
-            <div class="p-3 ">
-                <h1>EVENTOS</h1>
-
-                <<a href="{{ route('evento.crear') }}" class="btn btn-success m-2">Crear evento</a>
-
-
-                    @foreach($eventos as $evento)
-
-                    <div class="card mb-3 " style="max-width: 840px;">
-                        <div class="row g-0">
-                            <div class="col-md-4  d-flex justify-content-center ">
-                                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="img-fluid rounded-start" alt="...">
-                            </div>
-
-                            <div class="col-md-8">
+            <!-- Contenido principal -->
+            <div class="col main-content">
+                <h1 class="text-center mt-3">EVENTOS</h1>
+                <a href="{{ route('evento.crear') }}" class="btn btn-success mb-3">Crear evento</a>
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        @foreach($eventos as $evento)
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="card-img-top" alt="..." width="300" height="300">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $evento->nombre }}</h5>
                                     <p class="card-text">{{ $evento->descripcion }}</p>
                                     <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
                                     <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
-                                    <div class="d-flex  justify-content-end   ">
-                                        <a href="" class="btn btn-primary m-2">Ver</a>
-                                        <form action=" {{ route('evento.edita', $evento) }} " method="POST">
-                                            @csrf
-                                            @method('GET')
-
-                                            <input type="submit" value="Editar" class="btn btn-warning m-2">
-                                        </form>
-                                        <form action=" {{ route('evento.elimina', $evento) }} " method="POST">
+                                    <div class="text-end">
+                                        <a href="#" class="btn btn-primary">Ver</a>
+                                        <a href="{{ route('evento.edita', $evento) }}" class="btn btn-warning">Editar</a>
+                                        <form action="{{ route('evento.elimina', $evento) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('DELETE')
-
-                                            <input type="submit" value="Eliminar" class="btn btn-danger m-2">
+                                            <button type="submit" class="btn btn-danger">Eliminar</button>
                                         </form>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
-
+                </div>
             </div>
-            <!-- Fin Contenido -->
         </div>
     </div>
-
 </body>
 
 </html>

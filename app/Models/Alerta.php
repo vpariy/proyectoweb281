@@ -9,6 +9,7 @@ class Alerta extends Model
 {
     use HasFactory;
     protected $table = 'alertas';
+    protected $fillable = ['revisado'];
 
     public function usuario()
     {

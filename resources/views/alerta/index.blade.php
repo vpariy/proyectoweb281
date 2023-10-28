@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Lista de Alertas</title>
        <!-- Estilos -->
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
        <link rel="stylesheet" href="../style/style.css">
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+       
    
     <!-- Incluye las bibliotecas de Leaflet y OpenStreetMap -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+   
     <style>
         #map {
             height: 400px;
@@ -45,6 +46,7 @@
                 <th>Latitud</th>
                 <th>Longitud</th>
                 <th>Fecha</th>
+                <th>Revisado</th>
                 <th>Ver Ubicación</th>
             </tr>
         </thead>
@@ -58,6 +60,14 @@
                     <td>{{ $alerta->ubicacion->latitud }}</td>
                     <td>{{ $alerta->ubicacion->longitud }}</td>
                     <td>{{ $alerta->created_at }}</td>
+                    <td>
+                        <!-- Switch para controlar el atributo 'revisado' -->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="revisadoSwitch{{ $alerta->id }}" 
+                                {{ $alerta->revisado ? 'checked' : '' }}>
+                            <label class="form-check-label" for="revisadoSwitch{{ $alerta->id }}"></label>
+                        </div>
+                    </td>
                     <td>
                         <!-- Botón para ver la ubicación en el mapa -->
                         <button onclick="updateMap({{ $alerta->ubicacion->latitud }}, {{ $alerta->ubicacion->longitud }})">Ver en Mapa</button>
@@ -108,7 +118,38 @@ function updateMap(latitud, longitud) {
         initMap(latitud, longitud);
     }
 }
-
 </script>
+
+<!-- ... (código HTML existente) ... -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Manejar cambios en los switches
+        $('.form-check-input').on('change', function() {
+            var alertaId = $(this).attr('id').replace('revisadoSwitch', '');
+
+            // Enviar el estado del switch al servidor usando fetch
+            fetch(`/alerta/${alertaId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    revisado: $(this).prop('checked')
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </body>
 </html>

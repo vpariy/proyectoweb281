@@ -63,16 +63,23 @@ class AlertaController extends Controller
      */
     public function edit(Alerta $alerta)
     {
-        //
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alerta $alerta)
-    {
-        //
-    }
+    
+    public function update(Request $request, $id)
+{
+    $alerta = Alerta::find($id);
+    $alerta->update([
+        'revisado' => $request->input('revisado')
+    ]);
+
+    return response()->json(['success' => true, 'message' => 'Estado revisado actualizado correctamente']);
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -81,4 +88,6 @@ class AlertaController extends Controller
     {
         //
     }
+
+
 }

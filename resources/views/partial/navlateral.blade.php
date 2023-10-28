@@ -72,6 +72,12 @@
                     <i class="fs-6 fa fa-clipboard"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Test de violencia</span>
                 </a>
             </li>
+
+            <li class="nav-item py-2 py-sm-0">
+                <a href="{{ route('alerta.index') }}" class="nav-link text-white ">
+                    <i class="fs-6 fa fa-clipboard"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Alertas</span>
+                </a>
+            </li>
         </ul>
     </div>
     <div class="dropdown open fixed-bottom">

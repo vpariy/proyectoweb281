@@ -53,9 +53,10 @@ Route::put('articulo/actualizar/{articulo}', [\App\Http\Controllers\ArticuloCont
 
 Route::resource('centro_ayuda',\App\Http\Controllers\CentroAyudaController::class)->middleware('auth');
 
+Route::resource('alerta',\App\Http\Controllers\AlertaController::class)->middleware('auth');
+//Route::post('alerta/{id}/toggle-revisado',[\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth')->name('alerta.toggle-revisado');
 
-
-
+//Route::post('alerta/{id}/toggle-revisado', [\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth');
 
     
 /* Route::view('login', 'login.login')->name('login')->middleware('guest');

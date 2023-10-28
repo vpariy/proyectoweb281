@@ -23,6 +23,7 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-info" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
                     </li>
+                    <button type="button" class="btn btn-danger" id="obtener-ubicacion">ALERTA</button>
                 </ul>
             </div>
         </div>

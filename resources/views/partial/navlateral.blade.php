@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <style>
     @media (max-width: 576px) {
         .menu-list {
@@ -58,7 +59,7 @@
             </li>
             <li class="nav-item py-2 py-sm-0">
                 <a href="" class="nav-link ">
-                    <i class="fs-6 fa fa-house"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Home</span>
+                    <i class="fs-6 bi bi-shield-lock-fill"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Denuncias</span>
                 </a>
             </li>
             <li class="nav-item py-2 py-sm-0">

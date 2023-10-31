@@ -18,7 +18,7 @@
                         <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.normativa') }}">Normativas</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-danger" href="#">Panel de denuncias</a>
+                        <a class="nav-link btn btn-outline-danger" href="{{ route('denuncia.crear') }}">Panel de denuncias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-info" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
@@ -30,3 +30,7 @@
 
     </div>
 </nav>
+<br>
+<br>
+<br>
+<br>

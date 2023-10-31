@@ -55,10 +55,16 @@ Route::resource('centro_ayuda',\App\Http\Controllers\CentroAyudaController::clas
 
 Route::resource('alerta',\App\Http\Controllers\AlertaController::class)->middleware('auth');
 //Route::post('alerta/{id}/toggle-revisado',[\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth')->name('alerta.toggle-revisado');
-
 //Route::post('alerta/{id}/toggle-revisado', [\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth');
 
-    
+Route::get('denuncia/crear',[\App\Http\Controllers\DenunciaController::class, 'crear'])->middleware('auth')->name('denuncia.crear');
+Route::post('denuncia/registra',[\App\Http\Controllers\DenunciaController::class, 'registra'])->middleware('auth')->name('denuncia.registra');
+
+Route::get('datos_agresors/crear', [\App\Http\Controllers\DatosAgresorsController::class, 'crear'])->middleware('auth')->name('datos_agresors.crear');
+Route::post('datos_agresors/almacenar', [\App\Http\Controllers\DatosAgresorsController::class, 'almacenar'])->middleware('auth')->name('datos_agresors.almacenar');
+
+
+
 /* Route::view('login', 'login.login')->name('login')->middleware('guest');
 Route::post('login', [\App\Http\Controllers\LoginController::class, 'login']);
 Route::post('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->middleware('auth')->name('logout');

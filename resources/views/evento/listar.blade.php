@@ -23,6 +23,15 @@
             <div class="col main-content">
                 <h1 class="text-center mt-3">EVENTOS</h1>
                 <a href="{{ route('evento.crear') }}" class="btn btn-success mb-3">Crear evento</a>
+
+                @if(Auth::user()->id_rol == 1)
+                    <span>Es administrador</span>
+                @elseif( Auth::user()->id_rol == 2)
+                    <span>Es Encargado</span>
+                @else
+                    <span>Es Usuario</span>
+                @endif
+
                 <div class="container">
                     <div class="row justify-content-md-center">
                         @foreach($eventos as $evento)

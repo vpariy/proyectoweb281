@@ -36,7 +36,7 @@ Route::get('evento/edita/{evento}', [\App\Http\Controllers\EventoController::cla
 Route::put('evento/actualiza/{evento}', [\App\Http\Controllers\EventoController::class, 'actualiza'])->middleware('auth')->name('evento.actualiza');
 
 
-Route::get('questions/listar/{preguntas}', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');
+//Route::get('questions/listar/{preguntas}', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');
 Route::get('questions/listar', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');
 
 Route::get('normativa/listar', [\App\Http\Controllers\NormativaController::class, 'listar'])->middleware('auth')->name('normativa.listar');
@@ -57,11 +57,23 @@ Route::resource('alerta',\App\Http\Controllers\AlertaController::class)->middlew
 //Route::post('alerta/{id}/toggle-revisado',[\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth')->name('alerta.toggle-revisado');
 //Route::post('alerta/{id}/toggle-revisado', [\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth');
 
-Route::get('denuncia/crear',[\App\Http\Controllers\DenunciaController::class, 'crear'])->middleware('auth')->name('denuncia.crear');
-Route::post('denuncia/registra',[\App\Http\Controllers\DenunciaController::class, 'registra'])->middleware('auth')->name('denuncia.registra');
+Route::get('denuncia/crear',[\App\Http\Controllers\DenunciaController::class, 'crear'])->middleware('guest')->name('denuncia.crear');
+Route::post('denuncia/registra',[\App\Http\Controllers\DenunciaController::class, 'registra'])->middleware('guest')->name('denuncia.registra');
 
-Route::get('datos_agresors/crear', [\App\Http\Controllers\DatosAgresorsController::class, 'crear'])->middleware('auth')->name('datos_agresors.crear');
-Route::post('datos_agresors/almacenar', [\App\Http\Controllers\DatosAgresorsController::class, 'almacenar'])->middleware('auth')->name('datos_agresors.almacenar');
+//Route::get('datos_agresors/crear', [\App\Http\Controllers\DatosAgresorsController::class, 'crear'])->middleware('auth')->name('datos_agresors.crear');
+//Route::post('datos_agresors/almacenar', [\App\Http\Controllers\DatosAgresorsController::class, 'almacenar'])->middleware('auth')->name('datos_agresors.almacenar');
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

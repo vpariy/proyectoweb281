@@ -4,22 +4,25 @@
         .menu-list {
             background-color: #343a40;
             display: -webkit-box;
-            min-height: 0vh!important;
-            margin-top: 0px!important;
-            padding: 0vh!important;
+            min-height: 0vh !important;
+            margin-top: 0px !important;
+            padding: 0vh !important;
         }
-        .menu{
-            display: none!important;
+
+        .menu {
+            display: none !important;
         }
+
         .main-content {
-            margin-top: 60px; /* Ajusta este valor según sea necesario */
+            margin-top: 60px;
+            /* Ajusta este valor según sea necesario */
         }
     }
+
     .menu-list {
         background-color: #343a40;
         padding: 0px;
     }
-
 </style>
 
 
@@ -54,17 +57,18 @@
             </li>
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('centro_ayuda.index') }}" class="nav-link ">
-                    <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Centros de ayuda</span>
+                    <i class="bi bi-bag-heart-fill"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Centros de ayuda</span>
                 </a>
             </li>
             <li class="nav-item py-2 py-sm-0">
-                <a href="" class="nav-link ">
+                <a href="{{ route('denuncia.listar') }}" class="nav-link ">
                     <i class="fs-6 bi bi-shield-lock-fill"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Denuncias</span>
                 </a>
             </li>
+
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('articulo.listar') }}" class="nav-link ">
-                    <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Articles</span>
+                    <i class="bi bi-newspaper"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Articles</span>
                 </a>
             </li>
 
@@ -75,8 +79,8 @@
             </li>
 
             <li class="nav-item py-2 py-sm-0">
-                <a href="{{ route('alerta.index') }}" class="nav-link text-white ">
-                    <i class="fs-6 fa fa-clipboard"></i><span class="fs-5 ms-3 d-none d-sm-inline ">Alertas</span>
+                <a href="{{ route('alerta.index') }}" class="nav-link">
+                    <i class="bi bi-exclamation-triangle-fill"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Alertas</span>
                 </a>
             </li>
         </ul>
@@ -86,7 +90,7 @@
             <i class="fa fa-user"></i><span class="ms-2 d-none d-md-inline">{{ Auth::user()->email }}</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="triggerId">
-            @include('partial.nav')
+        <a href="/" class="dropdown-item">Inicio</a>
             <form action="{{ route('login.logout') }}" method="POST">
                 @csrf
                 @method('POST')

@@ -15,7 +15,7 @@
                         <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.normativa') }}">Normativas</span></a>
+                        <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.normativa') }}">Normativas</span></a> 
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-danger" href="{{ route('denuncia.crear') }}">Panel de denuncias</a>

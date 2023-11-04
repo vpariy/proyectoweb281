@@ -18,7 +18,7 @@ Route::get('articulo', [\App\Http\Controllers\PaginaController::class, 'articulo
 Route::get('normativa', [\App\Http\Controllers\PaginaController::class, 'normativa'])->name('pagina.normativa');
 
 //Rutas login inicio sesion
-Route::get('login/ingreso', [\App\Http\Controllers\LoginController::class, 'ingreso'])->name('login.ingreso');
+Route::get('login/ingreso', [\App\Http\Controllers\LoginController::class, 'ingreso'])->name('login.ingreso')->middleware('guest');
 Route::post('login/valida', [\App\Http\Controllers\LoginController::class, 'valida'])->name('login.valida');
 Route::post('login/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('login.logout');
 Route::get('login/registro', [\App\Http\Controllers\LoginController::class, 'registro'])->name('login.registro');
@@ -59,6 +59,10 @@ Route::resource('alerta',\App\Http\Controllers\AlertaController::class)->middlew
 
 Route::get('denuncia/crear',[\App\Http\Controllers\DenunciaController::class, 'crear'])->middleware('guest')->name('denuncia.crear');
 Route::post('denuncia/registra',[\App\Http\Controllers\DenunciaController::class, 'registra'])->middleware('guest')->name('denuncia.registra');
+Route::get('denuncia/listar',[\App\Http\Controllers\DenunciaController::class, 'listar'])->middleware('auth')->name('denuncia.listar');
+Route::put('denuncia/revisado/{denuncias2}',[\App\Http\Controllers\DenunciaController::class, 'revisado'])->middleware('auth')->name('denuncia.revisado');
+
+
 
 //Route::get('datos_agresors/crear', [\App\Http\Controllers\DatosAgresorsController::class, 'crear'])->middleware('auth')->name('datos_agresors.crear');
 //Route::post('datos_agresors/almacenar', [\App\Http\Controllers\DatosAgresorsController::class, 'almacenar'])->middleware('auth')->name('datos_agresors.almacenar');

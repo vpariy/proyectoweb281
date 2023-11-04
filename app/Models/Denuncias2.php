@@ -17,7 +17,11 @@ class Denuncias2 extends Model
         'ci',
         'fecha_agresion',
         'datos_agresors_id',
+        'revisado',
     ];
 
-
+    public function datos_agresors()
+    {
+        return $this->belongsTo(Datos_agresors::class, 'datos_agresors_id');
+    }
 }

@@ -47,9 +47,41 @@ class DenunciaController extends Controller
             'edad' => $request->input('edad'),
             'ci' => $request->input('ci'),
             'fecha_agresion' => $request->input('fecha_agresion'),
+            'revisado' => 0,
             'datos_agresors_id' => $datos_agresors->id, // Asocia la denuncia con los datos del agresor
         ]);
 
         return redirect()->route('denuncia.crear')->with('success', 'Denuncia creada exitosamente');
+    }
+
+    public function listar()
+    {
+        $denuncias2 = Denuncias2::with('datos_agresors')->orderByDesc('id')->get();
+
+
+        return view('denuncia.listar', ['denuncias2' => $denuncias2]);
+    }
+
+    public function revisado(Request $request, $id)
+    {
+        $denuncia = Denuncias2::find($id);
+        $denuncia->revisado = $request->input('revisado') == 1;
+        $denuncia->save();
+
+        return redirect()->back()->with('success', 'Estado de revisión actualizado correctamente');
+    }
+
+    public function actualizarRevisado($id, Request $request)
+    {
+        $denuncia = Denuncias2::find($id);
+        if (!$denuncia) {
+            return response()->json(['message' => 'Denuncia no encontrada'], 404);
+        }
+
+        $revisado = $request->input('revisado', 0);
+        $denuncia->revisado = $revisado;
+        $denuncia->save();
+
+        return response()->json(['message' => 'Estado revisado actualizado']);
     }
 }

@@ -28,7 +28,6 @@
                         @foreach($eventos as $evento)
                         <div class="col-md-6">
                             <div class="card">
-                                <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="card-img-top" alt="..." width="300" height="300">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $evento->nombre }}</h5>
                                     <p class="card-text">{{ $evento->descripcion }}</p>

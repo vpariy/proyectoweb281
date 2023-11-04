@@ -10,17 +10,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/style.css">
-
+    <style>
+        /* Estilo para ocultar la barra de navegación */
+        .navbar {
+            display: none!important; /* Esto oculta el contenido de la barra de navegación */
+        }
+    </style>
 </head>
 <body>
-    <div class="container-fluid ">
-        <div class="row flex-nowrap ">
+<div class="container-fluid">
+        <div class="row">
+            <!-- Barra lateral -->
             @include('partial.navlateral')
             
             <!-- Contenido -->
-            <div class="p-3">
-                <h1>DASHBOARD</h1>
-                <h2>Conted Area</h2>
+            <div class="col main-content">
+
             </div>
             <!-- Fin Contenido -->
         </div>

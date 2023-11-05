@@ -11,7 +11,8 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="mx-auto w-75 img-fluid rounded-start d-block" alt="imagen no encontrada">
+                        <img src="/storage/{{ $evento->archivo->nombre ?? '' }}" class="mx-auto w-100 img-fluid rounded-start d-block" alt="imagen no encontrada">
+                        <br>
                         <h5 class="card-title">{{ $evento->nombre }}</h5>
                         <p class="card-text">{{ $evento->descripcion }}</p>
                         <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>

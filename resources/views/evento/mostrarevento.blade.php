@@ -42,10 +42,11 @@
             background-color: #39A7FF;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 2px ;
             position: fixed;
             bottom: 0;
             width: 100%;
+            height: 3%;
         }
 </style>    
 

@@ -12,10 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articulo', function (Blueprint $table) {
-            $table->id('id_art');
-            $table->string('nombre_art');
-            $table->string('desc_art');
-            $table->string('img_art');
+            $table->id('id_articulo');
+            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->unsignedBigInteger('id_archivo')->nullable();
+            $table->string('nombre');
+            $table->string('autor');
+            $table->string('resumen');
+            
+            $table->timestamps();
+            
+            $table->foreign('id_usuario')->references('id_usuario')->on('usuario')->nullOnDelete();
+            $table->foreign('id_archivo')->references('id_archivo')->on('archivo');
+
 
             
 

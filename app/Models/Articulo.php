@@ -10,12 +10,12 @@ class Articulo extends Model
     use HasFactory;
 
     protected $table = 'articulo'; 
-    protected $primaryKey = 'id_art';
+    protected $primaryKey = 'id_articulo';
 
     
-    public $timestamps = false;
+    public $timestamps = true;
 
-    protected $fillable = ['nombre_art', 'desc_art', 'img_art'];
+    protected $fillable = ['nombre', 'descripcion', 'autor'];
 
 
 }

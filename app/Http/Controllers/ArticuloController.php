@@ -12,9 +12,10 @@ class ArticuloController extends Controller
 {
     public function listar()
     {
-        $articulos = Articulo::orderByDesc('id_art')->get();
+        $articulos = Articulo::orderByDesc('created_at')->get();
 
-        return view('articulo.listar', compact('articulos'));
+        //return view('articulo.listar', compact('articulos'));
+        return view('articulo.listar', ['articulos' => $articulos]);
     }
 
     public function crear()

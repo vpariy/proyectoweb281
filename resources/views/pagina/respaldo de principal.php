@@ -63,7 +63,7 @@
 
         <div class="card-group">
             @if (!empty($eventos) && count($eventos) > 0)
-            @for ($i = 0; $i < count($eventos); $i++) @if ($i % 3==0) </div>
+            @for ($i = 0; $i < count($eventos); $i++) @if ($i % 3==0) 
                 <div class="card-group">
                     @endif
                     <div class="card border-info mb-3" style="max-width: 34rem;">

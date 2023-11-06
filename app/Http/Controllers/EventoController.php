@@ -93,4 +93,9 @@ class EventoController extends Controller
         return redirect(route('evento.listar'));
 
     }
+
+    public function mostrar(Evento $evento) {
+        
+        return view('evento.mostrar', ['evento' => $evento]);
+    }
 }

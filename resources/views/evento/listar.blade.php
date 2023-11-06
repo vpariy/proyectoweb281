@@ -18,7 +18,7 @@
                         <p class="card-text"><small class="text-muted">Dia del evento: {{ $evento->f_evento }}</small></p>
                         <p class="card-text"><small class="text-muted">Modalidad {{ $evento->tipo }}</small></p>
                         <div class="text-end">
-                            <a href="#" class="btn btn-primary">Ver</a>
+                            <a href="{{ route('evento.mostrar', $evento) }}" class="btn btn-primary">Ver</a>
                             <a href="{{ route('evento.edita', $evento) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('evento.elimina', $evento) }}" method="POST" style="display: inline;">
                                 @csrf

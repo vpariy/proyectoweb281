@@ -34,6 +34,7 @@ Route::post('evento/registra', [\App\Http\Controllers\EventoController::class, '
 Route::delete('evento/elimina/{evento}', [\App\Http\Controllers\EventoController::class, 'elimina'])->middleware('auth')->name('evento.elimina');
 Route::get('evento/edita/{evento}', [\App\Http\Controllers\EventoController::class, 'edita'])->middleware('auth')->name('evento.edita');
 Route::put('evento/actualiza/{evento}', [\App\Http\Controllers\EventoController::class, 'actualiza'])->middleware('auth')->name('evento.actualiza');
+Route::get('evento/mostrar/{evento}', [\App\Http\Controllers\EventoController::class, 'mostrar'])->middleware('auth')->name('evento.mostrar');
 
 
 //Route::get('questions/listar/{preguntas}', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');

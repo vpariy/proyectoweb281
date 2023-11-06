@@ -15,7 +15,7 @@ class Articulo extends Model
     
     public $timestamps = true;
 
-    protected $fillable = ['nombre', 'descripcion', 'autor'];
+    protected $fillable = ['nombre', 'resumen', 'autor'];
 
 
 }

@@ -98,4 +98,9 @@ class EventoController extends Controller
         
         return view('evento.mostrar', ['evento' => $evento]);
     }
+
+    public function mostrarevento(Evento $evento) {
+        
+        return view('evento.mostrarevento', ['evento' => $evento]);
+    }
 }

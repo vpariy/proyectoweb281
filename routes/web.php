@@ -35,7 +35,7 @@ Route::delete('evento/elimina/{evento}', [\App\Http\Controllers\EventoController
 Route::get('evento/edita/{evento}', [\App\Http\Controllers\EventoController::class, 'edita'])->middleware('auth')->name('evento.edita');
 Route::put('evento/actualiza/{evento}', [\App\Http\Controllers\EventoController::class, 'actualiza'])->middleware('auth')->name('evento.actualiza');
 Route::get('evento/mostrar/{evento}', [\App\Http\Controllers\EventoController::class, 'mostrar'])->middleware('auth')->name('evento.mostrar');
-
+Route::get('evento/mostrarevento/{evento}', [\App\Http\Controllers\EventoController::class, 'mostrarevento'])->middleware('guest')->name('evento.mostrarevento');
 
 //Route::get('questions/listar/{preguntas}', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');
 Route::get('questions/listar', [\App\Http\Controllers\TestviolenciaController::class, 'listar'])->middleware('auth')->name('questions.listar');

@@ -36,8 +36,11 @@ class ArticuloController extends Controller
             'nombre' => $request->get('nombre'),
             'autor' => $request->get('autor'),
             'resumen' => $request->get('resumen'),
+            
             // Agrega más campos según sea necesario
         ]);
+        
+        $articulo->id_usuario = Auth::user()->id_usuario;
 
         // Guarda el nuevo artículo en la base de datos
         $articulo->save();
@@ -80,37 +83,73 @@ class ArticuloController extends Controller
     }
 
 
-public function actualizar(Request $request, Articulo $articulo)
-{
-    // Validación de datos, ajusta las reglas según tus necesidades
-    $request->validate([
-        'nombre_art' => 'required|string|max:255',
-        'desc_art' => 'required|string',
-        'img_art' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Puedes ajustar las reglas para las imágenes
-    ]);
+    public function actualizar(Request $request, Articulo $articulo)
+    {
+        /* // Validación de datos, ajusta las reglas según tus necesidades
+        $request->validate([
+            'nombre_art' => 'required|string|max:255',
+            'desc_art' => 'required|string',
+            'img_art' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Puedes ajustar las reglas para las imágenes
+        ]);
 
-    // Actualiza los campos del artículo
-    $articulo->nombre_art = $request->get('nombre_art');
-    $articulo->desc_art = $request->get('desc_art');
+        // Actualiza los campos del artículo
+        $articulo->nombre_art = $request->get('nombre_art');
+        $articulo->desc_art = $request->get('desc_art');
 
-    // Si se proporciona una nueva imagen, la actualiza
-    if ($request->hasFile('img_art')) {
-        // Elimina la imagen anterior si existe
-        if ($articulo->img_art) {
-            $rutaImagen = 'public/' . $articulo->img_art;
-            Storage::delete($rutaImagen);
+        // Si se proporciona una nueva imagen, la actualiza
+        if ($request->hasFile('img_art')) {
+            // Elimina la imagen anterior si existe
+            if ($articulo->img_art) {
+                $rutaImagen = 'public/' . $articulo->img_art;
+                Storage::delete($rutaImagen);
+            }
+
+            // Guarda la nueva imagen
+            $imagenNombre = $request->file('img_art')->store('imagenes/articulos', 'public');
+            $articulo->img_art = $imagenNombre;
         }
 
-        // Guarda la nueva imagen
-        $imagenNombre = $request->file('img_art')->store('imagenes/articulos', 'public');
-        $articulo->img_art = $imagenNombre;
+        // Guarda los cambios en la base de datos
+        $articulo->save(); */
+
+
+
+        $articulo->nombre = $request->get('nombre');
+        $articulo->autor = $request->get('autor');
+        $articulo->resumen = $request->get('resumen');
+        
+
+        // Guarda el nuevo artículo en la base de datos
+        $articulo->save();
+
+        $archivo = new Archivo();
+        $documento = $request->file('archivo');
+        $archivo->save();
+
+        $nombre_documento = $archivo->id_archivo . "." . $documento->extension();
+        $archivo->nombre = $nombre_documento;
+
+        $documento->storeAs('', $nombre_documento, 'public');
+        $archivo->save();
+
+        $articulo->id_archivo = $archivo->id_archivo;
+        $articulo->save();
+
+
+        // Redirecciona a la vista de lista de artículos o a donde desees
+        return redirect()->route('articulo.listar')->with('success', 'Artículo actualizado exitosamente');
     }
 
-    // Guarda los cambios en la base de datos
-    $articulo->save();
+    public function descargar(Articulo $articulo) 
+    {   //dd($articulo->archivo->nombre);
+        $name = $articulo->archivo->nombre;
+        if (Storage::disk('public')->exists($name)) {
+            return Storage::disk('public')->download($name);
+        }
 
-    // Redirecciona a la vista de lista de artículos o a donde desees
-    return redirect()->route('articulo.listar')->with('success', 'Artículo actualizado exitosamente');
-}
+        return redirect(route('articulos.listar'));
+        
+    }
+
 
 }

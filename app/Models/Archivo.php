@@ -19,4 +19,8 @@ class Archivo extends Model
     public function evento() {
         return $this->hasMany(Evento::class);
     }
+
+    public function articulo() {
+        return $this->hasMany(Articulo::class);
+    }
 }

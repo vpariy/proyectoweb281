@@ -51,6 +51,7 @@ Route::post('articulo/registra', [\App\Http\Controllers\ArticuloController::clas
 Route::delete('articulo/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'destroy'])->middleware('auth')->name('articulo.destroy');
 Route::get('articulo/editar/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'editar'])->middleware('auth')->name('articulo.editar');
 Route::put('articulo/actualizar/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'actualizar'])->middleware('auth')->name('articulo.actualizar');
+Route::get('articulo/descargar/{articulo}', [\App\Http\Controllers\ArticuloController::class, 'descargar'])->name('articulo.descargar');
 
 Route::resource('centro_ayuda',\App\Http\Controllers\CentroAyudaController::class)->middleware('auth');
 

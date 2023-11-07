@@ -22,7 +22,7 @@
                 <p class="card-text"><small class="text-body-secondary">{{ $articulo->created_at }}</small>
                 
                 <div class="col">
-                    <a href="#" class="btn btn-success">Descargar</a>
+                    <a href="{{ route('articulo.descargar', $articulo) }}" class="btn btn-success">Descargar</a>
                     <a href="{{ route('articulo.editar', $articulo) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('articulo.destroy', $articulo) }}" method="POST" style="display: inline;">
                         @csrf

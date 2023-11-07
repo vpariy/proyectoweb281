@@ -68,7 +68,7 @@
 
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('articulo.listar') }}" class="nav-link ">
-                    <i class="bi bi-newspaper"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Articles</span>
+                    <i class="bi bi-newspaper"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Articulos</span>
                 </a>
             </li>
 

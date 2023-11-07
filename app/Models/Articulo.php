@@ -17,5 +17,7 @@ class Articulo extends Model
 
     protected $fillable = ['nombre', 'resumen', 'autor'];
 
-
+    public function archivo() {
+        return $this->belongsTo(Archivo::class, 'id_archivo', 'id_archivo');
+    }
 }

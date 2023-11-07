@@ -15,9 +15,8 @@ class PaginaController extends Controller
     public function principal() {
 
         $eventos = Evento::orderByDesc('f_evento')->get();
-        $articulos = Articulo::orderBy('id_art')->get();
-        //dd($articulos);
-        return view('pagina.principal', ['eventos' => $eventos, 'articulos' => $articulos]);
+        
+        return view('pagina.principal', ['eventos' => $eventos, ]);
     }
     
 
@@ -32,7 +31,7 @@ class PaginaController extends Controller
     }
 
     public function articulo(){
-        $articulos=Articulo::orderBy('id_art')->get();
+        $articulos=Articulo::orderByDesc('created_at')->get();
         return view('pagina.articulo',['articulos' => $articulos]);
     }
 

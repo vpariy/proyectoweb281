@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+
 class Articulo extends Model
 {
     use HasFactory;
@@ -15,9 +17,16 @@ class Articulo extends Model
     
     public $timestamps = true;
 
+    
     protected $fillable = ['nombre', 'resumen', 'autor'];
+
+    
+     
+
 
     public function archivo() {
         return $this->belongsTo(Archivo::class, 'id_archivo', 'id_archivo');
     }
+
+    
 }

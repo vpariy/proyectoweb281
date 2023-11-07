@@ -73,44 +73,7 @@
 
 
 
-<div class="aling">
-  
 
-
-
-</div>
-
-    <div class="container mt-5 mb-5">
-        <div class="card-header text-center mb-3">
-            <h1 class="text-center p-3">Articulos</h1>
-        </div>
-
-        <table class="table">
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    @if (isset($articulos))
-                    @foreach($articulos as $articulo)
-                    <div class="card mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="{{ asset($articulo->img_art) }}" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $articulo->nombre_art }}</h5>
-                                    <p class="card-text">{{ $articulo->desc_art }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    @else
-                    <p>No hay artículos disponibles.</p>
-                    @endif
-                </div>
-            </div>
-        </table>
-    </div>
 
 @endsection
 

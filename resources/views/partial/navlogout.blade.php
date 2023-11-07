@@ -12,6 +12,9 @@
                         <a href="login/ingreso" class="btn btn-outline-success">Ingreso</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.articulo') }}">Articulos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
                     </li>
                     <li class="nav-item active">

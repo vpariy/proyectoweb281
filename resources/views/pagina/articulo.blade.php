@@ -18,8 +18,8 @@
                 <h5 class="card-title">{{ $articulo->nombre }}</h5>
                 <p class="card-text">{{ $articulo->resumen }}</p>
                 
-                <p class="card-text"><small class="text-body-secondary">{{ $articulo->autor }}</small>
-                <p class="card-text"><small class="text-body-secondary">{{ $articulo->created_at }}</small>
+                <p class="card-text"><small class="text-body-secondary">Autor: {{ $articulo->autor }}</small>
+                <p class="card-text"><small class="text-body-secondary">Fecha: {{ substr( $articulo->created_at, 0, 10) }}</small>
                 
                 <div class="col">
                     <a href="{{ route('articulo.descargar', $articulo) }}" class="btn btn-success">Descargar documento</a>

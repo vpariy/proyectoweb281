@@ -30,7 +30,7 @@
                     @auth
                     <div class="dropdown mx-2">
                         <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Usuarios</span>
+                            <i class="fa-solid fa-user"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">{{ Auth::user()->nombres }}</span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('dashboard') }}">Administrar</a></li>

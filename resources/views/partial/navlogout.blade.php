@@ -8,9 +8,7 @@
         <div class="col-10">
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="login/ingreso" class="btn btn-outline-success">Ingreso</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.articulo') }}">Articulos</a>
                     </li>
@@ -26,9 +24,38 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-info" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
                     </li>
+                    <li>
                     <button type="button" class="btn btn-danger" id="obtener-ubicacion">ALERTA</button>
+                    </li>
+                    @auth
+                    <div class="dropdown mx-2">
+                        <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Usuarios</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('dashboard') }}">Administrar</a></li>
+                            <li>
+                                <form action="{{ route('login.logout') }}" method="POST">
+                                    @csrf
+                                    @method('POST')
+                                    <button class="dropdown-item" type="submit">Cerrar Session</button>
+                                </form>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                    @else
+                    <li class="nav-item mx-2">
+                        <a href="{{ route('login.ingreso') }}" class="btn btn-outline-success">Iniciar Sesion</a>
+                    </li>
+                    @endauth
+
                 </ul>
             </div>
+
+            
+
         </div>
 
     </div>

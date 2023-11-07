@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 //Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')->middleware('auth');
+Route::view('dashboard', 'dashboard')->middleware('auth')->name('dashboard');
 
 //Rutas pagina principal o de invitados
 Route::get('/', [\App\Http\Controllers\PaginaController::class, 'principal'])->name('pagina.principal');

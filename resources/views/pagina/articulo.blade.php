@@ -16,7 +16,7 @@
                     <img src="{{ Storage::url($articulo->archivo->nombre) }}" alt="Imagen del Artículo">
                     @else
                     <!-- Manejar el caso en el que el artículo no tiene un archivo asociado -->
-                    <p>No hay imagen disponible para este artículo.</p>
+                    <p>...</p>
                     @endif
                     <div class="card-body">
                         <ul class="list-group list-group-flush">

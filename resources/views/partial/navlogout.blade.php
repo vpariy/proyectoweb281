@@ -21,9 +21,25 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-danger" href="{{ route('denuncia.crear') }}">Panel de denuncias</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-info" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
+                    
+                    <li>
+                        <div class="dropdown">
+                            <a class="nav-link btn btn-outline-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Test violencia de genero
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('pagina.testviolencia') }}">Test 1</a></li>
+                                <li><a class="dropdown-item" href="{{ route('test.test2') }}">Test 2</a></li>
+                            
+                            </ul>
+                        </div>
                     </li>
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link btn btn-outline-info" href="{{ route('pagina.testviolencia') }}">Test violencia de genero</a>
+                    </li> -->
+
                     <li>
                     <button type="button" class="btn btn-danger" id="obtener-ubicacion">ALERTA</button>
                     </li>

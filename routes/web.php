@@ -66,6 +66,9 @@ Route::put('denuncia/revisado/{denuncias2}',[\App\Http\Controllers\DenunciaContr
 
 
 
+Route::view('test/test2', 'test.test2')->name('test.test2');
+
+
 //Route::get('datos_agresors/crear', [\App\Http\Controllers\DatosAgresorsController::class, 'crear'])->middleware('auth')->name('datos_agresors.crear');
 //Route::post('datos_agresors/almacenar', [\App\Http\Controllers\DatosAgresorsController::class, 'almacenar'])->middleware('auth')->name('datos_agresors.almacenar');
 

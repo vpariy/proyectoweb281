@@ -59,6 +59,6 @@ class LoginController extends Controller
 
         Auth::login($usuario);
 
-        return redirect('dashboard');
+        return redirect(route('pagina.principal'));
     }
 }

@@ -59,7 +59,7 @@ Route::resource('alerta',\App\Http\Controllers\AlertaController::class)->middlew
 //Route::post('alerta/{id}/toggle-revisado',[\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth')->name('alerta.toggle-revisado');
 //Route::post('alerta/{id}/toggle-revisado', [\App\Http\Controllers\AlertaController::class,'toggle-revisado'])->middleware('auth');
 
-Route::get('denuncia/crear',[\App\Http\Controllers\DenunciaController::class, 'crear'])->middleware('guest')->name('denuncia.crear');
+Route::get('denuncia/crear',[\App\Http\Controllers\DenunciaController::class, 'crear'])->name('denuncia.crear');
 Route::post('denuncia/registra',[\App\Http\Controllers\DenunciaController::class, 'registra'])->middleware('guest')->name('denuncia.registra');
 Route::get('denuncia/listar',[\App\Http\Controllers\DenunciaController::class, 'listar'])->middleware('auth')->name('denuncia.listar');
 Route::put('denuncia/revisado/{denuncias2}',[\App\Http\Controllers\DenunciaController::class, 'revisado'])->middleware('auth')->name('denuncia.revisado');

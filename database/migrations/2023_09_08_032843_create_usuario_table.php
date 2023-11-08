@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('usuario', function (Blueprint $table) {
             
             $table->id('id_usuario');
+            $table->unsignedBigInteger('id_rol')->nullable();
             $table->string('nombres', 30);
             $table->string('ap_paterno', 20)->nullable();
             $table->string('ap_materno', 20)->nullable();
@@ -22,10 +23,11 @@ return new class extends Migration
             $table->unsignedBigInteger('ci')->unique()->nullable();
             $table->date('fecha_nac')->nullable();
             $table->string('genero', 20)->nullable();
-
+        
             $table->timestamps();
 
-
+            
+            $table->foreign('id_rol')->references('id_rol')->on('rol')->nullOnDelete();
             
         });
     }

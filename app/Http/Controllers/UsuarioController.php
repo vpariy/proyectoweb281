@@ -46,6 +46,7 @@ class UsuarioController extends Controller
         $usuario->fecha_nac = $request->fecha_nac;
         $usuario->ci = $request->ci;
         $usuario->genero = $request->genero;
+        $usuario->id_rol = $request->rol;
 
         $usuario->save();
         return redirect(route('usuario.index'));
@@ -64,7 +65,16 @@ class UsuarioController extends Controller
      */
     public function edit(Usuario $usuario)
     {   //dd($usuario);
-        return view('usuario.editar', ['usuario' => $usuario]);
+        $nombre_rol = '';
+        if ($usuario->id_rol == 1) {
+            $nombre_rol = 'Administrador';
+        } elseif ($usuario->id_rol == 2) {
+            $nombre_rol = 'Encargado';
+        } elseif ($usuario->id_rol == 3) {
+            $nombre_rol = 'Usuario';
+        }
+
+        return view('usuario.editar', ['usuario' => $usuario, 'nombre_rol' => $nombre_rol]);
     }
 
     /**
@@ -80,6 +90,8 @@ class UsuarioController extends Controller
         $usuario->fecha_nac = $request->fecha_nac;
         $usuario->ci = $request->ci;
         $usuario->genero = $request->genero;
+        $usuario->id_rol = $request->rol;
+
         
         $usuario->save();
         return redirect(route('usuario.index'));

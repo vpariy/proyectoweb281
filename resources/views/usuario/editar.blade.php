@@ -21,7 +21,7 @@
             
             <!-- Contenido -->
             <div class="p-1 col" >
-                <h1>Editar Usuario</h1>
+
     
                 <h1 class="text-center p-3">Editar usuario</h1>
 
@@ -29,6 +29,8 @@
                     <form action="{{ route('usuario.update', $usuario) }}" method="POST" class="col-4">
                         @csrf
                         @method('PUT')
+
+                        
                         @include('usuario.datos')
                         
                         <button type="submit" class="btn btn-primary">Enviar</button>

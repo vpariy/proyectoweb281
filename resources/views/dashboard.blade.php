@@ -26,6 +26,14 @@
             <!-- Contenido -->
             <div class="col main-content">
 
+                @if(Auth::user()->id_rol == 1)
+                    <span>Es administrador</span>
+                @elseif( Auth::user()->id_rol == 2)
+                    <span>Es Encargado</span>
+                @else
+                    <span>Es Usuario</span>
+                @endif
+
             </div>
             <!-- Fin Contenido -->
         </div>

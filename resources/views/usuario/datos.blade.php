@@ -39,3 +39,36 @@
     <label for="password" class="form-label">Contraseña</label>
     <input type="password" class="form-control" id="password" name="password" value="{{ $usuario->password }}">
 </div>
+
+<label for="rol" class="form-label">Rol</label>
+
+
+<select class="form-select" id="rol" name="rol" >
+@if( $usuario->id_rol == 1 )
+<option value="1" selected>Administrador</option>
+<option value="2" >Encargado</option>
+<option value="3">Usuario</option>
+
+@elseif( $usuario->id_rol == 2 )
+
+<option value="1" >Administrador</option>
+<option value="2" selected>Encargado</option>
+<option value="3">Usuario</option>
+
+@elseif( $usuario->id_rol == 3 )
+
+<option value="1" >Administrador</option>
+<option value="2" >Encargado</option>
+<option value="3" selected>Usuario</option>
+
+@else
+
+<option value="1" >Administrador</option>
+<option value="2" >Encargado</option>
+<option value="3" selected>Usuario</option>
+
+@endif
+
+</select>
+<br>
+<br>

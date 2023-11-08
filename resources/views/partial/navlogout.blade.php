@@ -49,7 +49,12 @@
                             <i class="fa-solid fa-user"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">{{ Auth::user()->nombres }}</span>
                         </button>
                         <ul class="dropdown-menu">
+                        
+                        @if((Auth::user()->id_rol == 1) || (Auth::user()->id_rol == 2))
                             <li><a class="dropdown-item" href="{{ route('dashboard') }}">Administrar</a></li>
+                        @endif
+                        
+                            
                             <li>
                                 <form action="{{ route('login.logout') }}" method="POST">
                                     @csrf

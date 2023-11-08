@@ -28,4 +28,6 @@ class Usuario extends Authenticatable
         return $this->belongsToMany(Ubicacion::class,'alertas','id_usuario','id_ubicacion');
     }
 
+    
+
 }

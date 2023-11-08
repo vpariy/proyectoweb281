@@ -37,12 +37,18 @@
                     <i class="fs-6 fa fa-gauge"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">DashBoard</span>
                 </a>
             </li>
-
+            
+            @if(Auth::user()->id_rol == 1)
+              
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('usuario.index') }}" class="nav-link ">
                     <i class="fs-6 fa fa-users"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Usuarios</span>
                 </a>
             </li>
+
+            @endif
+
+            
 
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('evento.listar') }}" class="nav-link ">
@@ -50,16 +56,25 @@
                 </a>
             </li>
 
-            <li class="nav-item py-2 py-sm-0">
-                <a href="{{ route('normativa.listar') }}" class="nav-link ">
-                    <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline ">Normativa</span>
-                </a>
-            </li>
-            <li class="nav-item py-2 py-sm-0">
-                <a href="{{ route('centro_ayuda.index') }}" class="nav-link ">
-                    <i class="bi bi-bag-heart-fill"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Centros de ayuda</span>
-                </a>
-            </li>
+            @if(Auth::user()->id_rol == 1)
+                <li class="nav-item py-2 py-sm-0">
+                    <a href="{{ route('normativa.listar') }}" class="nav-link ">
+                        <i class="fs-6 fa fa-table-list"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline ">Normativa</span>
+                    </a>
+                </li>
+                <li class="nav-item py-2 py-sm-0">
+                    <a href="{{ route('centro_ayuda.index') }}" class="nav-link ">
+                        <i class="bi bi-bag-heart-fill"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Centros de ayuda</span>
+                    </a>
+                </li>   
+            @endif    
+
+            
+
+            @if(Auth::user()->id_rol == 1)
+                 
+            @endif
+
             <li class="nav-item py-2 py-sm-0">
                 <a href="{{ route('denuncia.listar') }}" class="nav-link ">
                     <i class="fs-6 bi bi-shield-lock-fill"></i><span class="fs-5 ms-3 d-none d-sm-none d-md-inline">Denuncias</span>

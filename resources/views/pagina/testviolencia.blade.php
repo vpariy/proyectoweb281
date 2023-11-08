@@ -9,32 +9,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../style/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     
-    
-
     <!-- Barra de navegación -->
             
-            @include('partial.navlogout')
+    @include('partial.navlogout')
             
-
-     <!-- Contenido de la página -->
-     <h1 class="text-center p-3">TEST DE VIOLENCIA DE GENERO</h1>
-     <div class="container mt-5 d-flex justify-content-center text-center">
-        <div id="pregunta-container">
-            <p id="pregunta"></p>
-            <div class="form-check form-check-inline">
-                <div class="form-check m-3" >
-                    <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionSi" value="1">
-                    <label class="form-check-label" for="opcionSi">Sí</label>
+    <div class="background-container">
+        <h1 class="text-center p-3">TEST DE VIOLENCIA DE GÉNERO</h1>
+        <!-- Contenido de la página -->
+        <div class="container mt-5 d-flex justify-content-center text-center">
+            <div id="pregunta-container" class="border-primary">
+                <p id="pregunta"></p>
+                <div class="form-check form-check-inline">
+                    <div class="form-check m-3">
+                        <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionSi" value="1">
+                        <label class="form-check-label" for="opcionSi">Sí</label>
+                    </div>
+                    <div class="form-check m-3">
+                        <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionNo" value="0">
+                        <label class="form-check-label" for="opcionNo">No</label>
+                    </div>
                 </div>
-                <div class="form-check m-3">
-                    <input class="form-check-input custom-radio" type="radio" name="respuesta" id="opcionNo" value="0">
-                    <label class="form-check-label" for="opcionNo">No</label>
-                </div>
-            </div>
-            <button id="siguiente-btn" class="btn btn-primary text-center">Siguiente</button>
+                <button id="siguiente-btn" class="btn btn-primary text-center">Siguiente</button>
+            </div>  
         </div>
     </div>
     
@@ -194,6 +194,21 @@
 
 
 <style>
+.background-container {
+    background: url('https://static.vecteezy.com/system/resources/previews/002/397/090/large_2x/people-with-question-marks-illustration-man-and-woman-with-question-thinking-guy-illustration-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(255, 255, 255, 0.5); 
+    padding: 200px;
+}
+#pregunta-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 34px;
+    border-radius: 10px;
+    font-size: 21px; 
+    font-family: 'TuFuentePersonalizada', sans-serif;
+}
     .custom-radio {
     width: 2rem; /* Personaliza el ancho del radio */
     height: 2rem; /* Personaliza la altura del radio */
@@ -254,6 +269,34 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        // Función para aplicar estilos al #pregunta-container
+        function aplicarEstilos(borde, fondo, colorTexto) {
+            $("#pregunta-container").removeClass("border-primary border-success border-danger");
+            $("#pregunta-container").addClass(borde);
+            $("#pregunta-container").css("background-color", fondo);
+            $("#pregunta-container").css("color", colorTexto);
+        }
+
+        // Inicialmente, establece el estilo por defecto
+        aplicarEstilos("border border-primary", "rgba(255, 255, 255, 0.9)", "black");
+
+        // Cuando se selecciona "Sí"
+        $("#opcionSi").on("click", function () {
+            aplicarEstilos("border border-success", "rgba(0, 255, 0, 0.9)", "black");
+        });
+
+        // Cuando se selecciona "No"
+        $("#opcionNo").on("click", function () {
+            aplicarEstilos("border border-danger", "rgba(255, 0, 0, 0.9)", "white");
+        });
+        
+        $("#siguiente-btn").on("click", function () {
+        aplicarEstilos("border border-primary", "rgba(255, 255, 255, 0.9)", "black");
+        });
+    });
+    </script>
 <script>
     // Esperar a que el modal se cierre completamente
 $('#modalUno').on('hidden.bs.modal', function () {location.reload();});

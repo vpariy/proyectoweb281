@@ -93,8 +93,21 @@
                                     @else
                                     <p class="card-text text-warning"><strong>Esta denuncia no tiene datos del agresor.</strong></p>
                                     @endif
+
+                                    <div class="card-footer d-flex justify-content-between">
+                                        <h5 class="card-title">
+                                            <p class="card-text @if($denuncia2->revisado) text-primary @endif"><strong>Victima</strong></p>
+                                        </h5>
+                                    </div>
+                                    @if ($denuncia2->datos_victima)
+                                    <p class="card-text"><strong>Nombre:</strong> {{ optional($denuncia2->datos_victima)->nombre }}</p>
+                                    <p class="card-text"><strong>Edad:</strong> {{ optional($denuncia2->datos_victima)->edad }}</p>
+                                    <p class="card-text"><strong>Sexo:</strong> {{ optional($denuncia2->datos_victima)->sexo == 0 ? 'Masculino' : 'Femenino' }}</p>
+                                    <p class="card-text"><strong>Estado:</strong> {{ optional($denuncia2->datos_victima)->estado }}</p>
+                                    @endif
+
                                 </div>
-                                <button type="submit" class="btn btn-light mt-3">Guardar</button>
+                                <button type="submit" class="btn btn-outline-dark mt-3">Guardar</button>
                             </div>
                         </form>
                         @endforeach

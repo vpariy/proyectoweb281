@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Denuncias2;
 use App\Models\Datos_agresors;
+use App\Models\Datos_victima;
 use App\Models\DatosAgresors;
 
 class DenunciaController extends Controller
@@ -28,9 +29,13 @@ class DenunciaController extends Controller
             'nombre' => 'required|string',  // Datos del Agresor
             'descripcion' => 'required|string', // Datos del Agresor
             'descripcion_agresion' => 'required|string', // Datos del Agresor
-            // Agrega más 
-        ]);
 
+            // Nuevos campos de la víctima
+            'nombre_victima' => 'required|string',
+            'edad_victima' => 'required|integer',
+            'sexo_victima' => 'required|boolean',
+            'estado_victima' => 'required|string',
+        ]);
 
         // Crea una nueva instancia de Datos_agresors
         $datos_agresors = Datos_agresors::create([
@@ -38,6 +43,13 @@ class DenunciaController extends Controller
             'descripcion' => $request->input('descripcion'),
             'descripcion_agresion' => $request->input('descripcion_agresion'),
             'archivos_prueba' => $request->input('archivos_prueba'),
+        ]);
+
+        $datos_victima = Datos_victima::create([
+            'nombre' => $request->input('nombre_victima'),
+            'edad' => $request->input('edad_victima'),
+            'sexo' => $request->input('sexo_victima'),
+            'estado' => $request->input('estado_victima'),
         ]);
 
         // Crea una nueva instancia de Denuncias2
@@ -49,7 +61,10 @@ class DenunciaController extends Controller
             'fecha_agresion' => $request->input('fecha_agresion'),
             'revisado' => 0,
             'datos_agresors_id' => $datos_agresors->id, // Asocia la denuncia con los datos del agresor
+            'datos_victima_id' => $datos_victima->id, // Relación con la víctima
+
         ]);
+
 
         return redirect()->route('denuncia.crear')->with('success', 'Denuncia creada exitosamente');
     }

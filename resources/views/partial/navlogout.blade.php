@@ -10,12 +10,12 @@
                 <ul class="navbar-nav">
                     
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.articulo') }}">Articulos</a>
+                        <a class="nav-link btn btn-outline-primary" href="{{ route('pagina.articulo') }}">Articulos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
+                        <a class="nav-link btn btn-outline-warning" href="{{ route('pagina.centrosayuda') }}">Centros de Ayuda</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link btn btn-outline-secondary" href="{{ route('pagina.normativa') }}">Normativas</span></a> 
                     </li>
                     <li class="nav-item">
@@ -24,9 +24,9 @@
                     
                     <li>
                         <div class="dropdown">
-                            <a class="nav-link btn btn-outline-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="nav-link btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Test violencia de genero
-                            </a>
+                            </button>
 
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('pagina.testviolencia') }}">Test 1</a></li>

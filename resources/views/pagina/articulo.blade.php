@@ -12,12 +12,7 @@
             @foreach($articulos as $articulo)
             <div class="col-md-6 mb-3">
                 <div class="card border-primary">
-                    @if ($articulo->archivo)
-                    <img src="{{ Storage::url($articulo->archivo->nombre) }}" alt="Imagen del Artículo">
-                    @else
-                    <!-- Manejar el caso en el que el artículo no tiene un archivo asociado -->
-                    <p>...</p>
-                    @endif
+                    
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">

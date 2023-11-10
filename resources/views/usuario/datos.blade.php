@@ -40,6 +40,9 @@
     <input type="password" class="form-control" id="password" name="password" value="{{ $usuario->password }}">
 </div>
 
+
+@auth
+
 <label for="rol" class="form-label">Rol</label>
 
 
@@ -68,6 +71,8 @@
 <option value="3" selected>Usuario</option>
 
 @endif
+
+@endauth
 
 </select>
 <br>

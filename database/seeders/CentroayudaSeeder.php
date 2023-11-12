@@ -15,6 +15,7 @@ class CentroayudaSeeder extends Seeder
         $centroAyudaId = DB::table('centro_ayudas')->insertGetId([
             'nombre_centro' => 'F.E.L.C.V.',
             'descripcion' => 'Fuerza Especial de Lucha contra la Violencia',
+            'img' => 'https://www.policiadnfr.gob.bo/imagen/felcv.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -43,6 +44,7 @@ class CentroayudaSeeder extends Seeder
             'nombre_centro' => 'Defensoria del pueblo',
             'descripcion' => 'institución al servicio del pueblo para la defensa, vigencia y promoción de los derechos 
             humanos con énfasis con las poblaciones en situación de vulnerabilidad y sectores desfavorecidos',
+            'img' => 'https://www.defensoria.gob.bo/www/img/logo-defensor-2.png',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -87,6 +89,7 @@ class CentroayudaSeeder extends Seeder
             'nombre_centro' => 'Coordinadora de la Mujer',
             'descripcion' => 'En 1986 se fundó la Coordinadora de la Mujer (CM) como una instancia de reflexión, formación y propuesta, 
             dirigida a la sociedad y al Estado, para mejorar la posición de las mujeres en nuestro país',
+            'img' => 'https://www.coordinadoradelamujer.org.bo/web/files/img/maq/logo.jpg',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -104,6 +107,7 @@ class CentroayudaSeeder extends Seeder
         $centroAyudaId = DB::table('centro_ayudas')->insertGetId([
             'nombre_centro' => 'Fundación Pro Mujer',
             'descripcion' => 'Pro mujer es una empresa social que desde hace más de 33 años trabaja por avanzar hacia la igualdad de género en américa latina.',
+            'img' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYxPFBxOurwkTpiMyhLkYfasj87ahrjQMhYCFOth2A0vO-W_c4mSeuzdwLDHPEpXep8A&usqp=CAU',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

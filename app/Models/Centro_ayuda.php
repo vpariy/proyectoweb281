@@ -10,7 +10,8 @@ class Centro_ayuda extends Model
     use HasFactory;
     protected $fillable = [
         'nombre_centro',
-        'descripcion'
+        'descripcion',
+        'img',
     ];
 
     public function direcciones(){

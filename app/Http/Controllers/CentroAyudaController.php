@@ -36,6 +36,7 @@ class CentroAyudaController extends Controller
         $request->validate([
             'nombre_centro' => 'required|string|max:255',
             'descripcion'=>'required|string|max:255',
+            'img'=>'required|string|max:2255',
             'direcciones.*' => 'required|string|max:255',
             'contactos.*' => 'required|string|max:255',
         ]);
@@ -44,6 +45,7 @@ class CentroAyudaController extends Controller
         $centro = new Centro_ayuda([
             'nombre_centro' => $request->input('nombre_centro'),
             'descripcion' => $request->input('descripcion'),
+            'img' => $request->input('img'),
         ]);
     
         $centro->save();
@@ -93,6 +95,7 @@ class CentroAyudaController extends Controller
             $request->validate([
                 'nombre_centro' => 'required|string|max:255',
                 'descripcion'=>'required|string|max:255',
+                'img'=>'required|string|max:2255',
                 'direcciones.*' => 'required|string|max:255',
                 'contactos.*' => 'required|string|max:255',
             ]);
@@ -101,6 +104,7 @@ class CentroAyudaController extends Controller
             $centro_ayuda->update([
                 'nombre_centro' => $request->input('nombre_centro'),
                 'descripcion' => $request->input('descripcion'),
+                'img' => $request->input('img'),
             ]);
     
             // Actualizar las direcciones relacionadas

@@ -95,6 +95,25 @@
     });
 </script>
 
+
+
+    <script>
+        var botmanWidget = {
+            frameEndpoint: '/botman/chat',
+            chatServer: '/botman',
+            introMessage: '¡Hola! ¿En qué puedo ayudarte hoy?',
+            chatId: 'botman-chat',
+            title: 'ChatBot Informativo',
+            mainColor: '#62CEF1',
+            bubbleBackground: '#62CEF1',
+            aboutText: '',
+            aboutLink: '',
+            placeholderText:'Envia un mensaje...',
+            //aboutText: 'Start the conversation with Hi',
+
+        };
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 </body>
 
 </html>

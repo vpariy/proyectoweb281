@@ -23,8 +23,9 @@
 
     <!-- Contenido del formulario de denuncias y datos del agresor -->
     <div class="container">
-        <form method="POST" action="{{ route('denuncia.registra') }}">
+        <form method="POST" action="{{ route('denuncia.registra') }}" enctype="multipart/form-data">
             @csrf
+            @method('POST')
 
             <div class="row">
                 <!-- Columna para los campos de denuncias -->
@@ -73,8 +74,8 @@
                         <textarea class="form-control" id="descripcion_agresion" name="descripcion_agresion" rows="4" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="archivos_prueba" class="form-label">Archivos de Prueba Relacionados</label>
-                        <input type="file" class="form-control" id="archivos_prueba" name="archivos_prueba">
+                        <label for="archivos" class="form-label">Archivos de Prueba Relacionados</label>
+                        <input type='file' class="form-control" id="archivos" name="archivos[]" multiple >
                     </div>
                 </div>
 

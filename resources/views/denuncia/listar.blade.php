@@ -89,7 +89,8 @@
                                     <p class="card-text"><strong>Nombre:</strong> {{ optional($denuncia2->datos_agresors)->nombre }}</p>
                                     <p class="card-text"><strong>Descripción:</strong> {{ optional($denuncia2->datos_agresors)->descripcion }}</p>
                                     <p class="card-text"><strong>Descripción de la Agresión:</strong>{{ optional ($denuncia2->datos_agresors)->descripcion_agresion }}</p>
-                                    <p class="card-text"><strong>Archivos de Prueba:</strong> <a href="{{ optional($denuncia2->datos_agresors)->archivos_prueba }}">Material descargable</a> </p>
+                                    <p class="card-text"><strong>Archivos de Prueba:</strong> <a href="{{ route('denuncia.descarga', $denuncia2) }}">Material descargable</a> </p>
+                                    
                                     @else
                                     <p class="card-text text-warning"><strong>Esta denuncia no tiene datos del agresor.</strong></p>
                                     @endif
@@ -110,6 +111,7 @@
                                 <button type="submit" class="btn btn-outline-dark mt-3">Guardar</button>
                             </div>
                         </form>
+                        
                         @endforeach
                     </div>
                 </div>

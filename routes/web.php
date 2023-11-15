@@ -63,6 +63,7 @@ Route::get('denuncia/crear',[\App\Http\Controllers\DenunciaController::class, 'c
 Route::post('denuncia/registra',[\App\Http\Controllers\DenunciaController::class, 'registra'])->name('denuncia.registra');
 Route::get('denuncia/listar',[\App\Http\Controllers\DenunciaController::class, 'listar'])->middleware('auth')->name('denuncia.listar');
 Route::put('denuncia/revisado/{denuncias2}',[\App\Http\Controllers\DenunciaController::class, 'revisado'])->middleware('auth')->name('denuncia.revisado');
+Route::get('denuncia/descarga/{denuncia2}', [\App\Http\Controllers\DenunciaController::class, 'descargar'])->name('denuncia.descarga');
 
 
 

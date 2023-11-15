@@ -24,7 +24,7 @@ class EventoController extends Controller
     }
 
     public function registra(Request $request) {
-        
+        //dd($request);
         //dd(Auth::user()->id_usuario);
         $evento = new Evento();
         $evento->nombre = $request->nombre;

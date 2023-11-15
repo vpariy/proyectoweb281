@@ -33,14 +33,15 @@ class BotManController extends Controller
             $bot->reply('3. Opción 3');
         });
 
-        $botman->hears(['.*educativo.*', '.*articulo.*', 'busco material informativo'], function (BotMan $bot) {
+        $botman->hears(['.*buscar.*.*educativo.*', '.*buscar.*.*articulo.*', 'busco material informativo'], function (BotMan $bot) {
             $enlace = '<a href="/articulo" target="_blank" >articulos</a>';
             $bot->reply("Aquí tienes un enlace a : $enlace");
         });
 
         $botman->hears(['Denunciar', 'Realizar denuncia', 'Cómo denunciar'], function (BotMan $bot) {
+            $enlace = '<a href="/denuncia/crear" target="_blank" >formulario de denuncia.</a>';
             $bot->reply('Puedes realizar una denuncia de la siguiente manera:');
-            $bot->reply('1. Visita nuestro sitio web y completa el formulario de denuncia.');
+            $bot->reply("1. Visita nuestro sitio web y completa el $enlace");
             $bot->reply('2. Llama a nuestra línea de denuncias al XXX-XXXX para reportar la situación.');
             $bot->reply('3. Acude personalmente a nuestras oficinas para presentar la denuncia en persona.');
         });
@@ -64,6 +65,32 @@ class BotManController extends Controller
             $bot->reply('1. Toda la información proporcionada se maneja de manera confidencial.');
             $bot->reply('2. Utilizamos protocolos de seguridad avanzados para proteger tus datos.');
             $bot->reply('3. Solo el personal autorizado tiene acceso a la información de la denuncia.');
+        });
+
+        $botman->hears(['Quiero saber si sufro violencia','Como saber si sufro violencia','Existe una forma de saber si sufro violencia'],function(BotMan $bot){
+            $enlace = '<a href="/centrosayuda" target="_blank" >Centros de ayuda</a>';
+            $test1='<a href="/testviolencia" target="_blank"> Test 1</a>';
+            $test2='<a href="/test/test2" target="_blank"> Test 2</a>';
+            $bot->reply('Existen varias formas de saber si se sufre violencia:');
+            $bot->reply("1. Acude con una entidad que te puede ayudar en la pestaña: $enlace puedes encontrar informacion al respecto");
+            $bot->reply("2. Puedes dirigirte a la pestaña de Test de violencia de nuestro sitio web y escoger entre el $test1 o el $test2");
+        });
+
+        
+        $botman->hears(['.*busco.*.*leyes.*','estoy buscando leyes sobre violencia'],function(BotMan $bot){
+            $enlace = '<a href="/normativa" target="_blank" >Normativas</a>';
+            $bot->reply("Si estas buscando informacion sobre leyes acerca de la violencia de genero visita la pestaña de $enlace");
+    
+        });
+
+        $botman->hears(['Como funcionan las alertas','como funciona el boton de alerta','para que sirve el boton de alertas','.*funcion.*.*alerta.*'],function(BotMan $bot){
+           
+            $bot->reply('El boton de alerta esta diseñado ');
+            $bot->reply('para que los usuarios registrados en nuestro sitio web');
+            $bot->reply('puedan presionarlo al sufrir un caso grave de violencia,');
+            $bot->reply('nosotros recibiremos la ubicacion donde se esta cometiendo el acto de violencia');
+            $bot->reply('e informaremos a las autoridades correspondientes');
+
         });
 
         $botman->fallback(function (BotMan $bot) {
